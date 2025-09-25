@@ -1,0 +1,34 @@
+Image Filenames and Their Locations
+------------------------------------
+
+Here is a list of suggested image names to use. Place these images inside the "resources/images/" folder.
+
+### Main Sections
+- Hero Section (main image on the right): `hero-image.jpg` (Suggested size: 800x900 pixels)
+- About Me Section (your profile picture): `profile-picture.png` (Suggested size: 300x300 pixels, square)
+
+### Projects Section
+- Capsule Project Card: `project-capsule.jpg` (Suggested size: 600x400 pixels)
+- ANPR Project Card: `project-anpr.jpg` (Suggested size: 600x400 pixels)
+- EHR Project Card: `project-ehr.jpg` (Suggested size: 600x400 pixels)
+
+### Certifications Section (Logos)
+- Google Cloud Digital Leader Card: `logo-gcp.png` (Small, square logo)
+- Machine Learning Specialization Card: `logo-ml.png` (Small, square logo)
+- Azure AI Fundamentals Card: `logo-azure.png` (Small, square logo)
+
+### Research Section
+- Research Paper Visual: `research-visual.jpg` (Suggested size: 600x800 pixels, portrait orientation)
+
+### Blog Section
+- Featured Post (Data Science): `blog-featured-datasci.jpg` (Suggested size: 800x500 pixels)
+- Featured Post (Machine Learning): `blog-featured-ml.jpg` (Suggested size: 800x500 pixels)
+- Featured Post (Technology): `blog-featured-tech.jpg` (Suggested size: 800x500 pixels)
+- Featured Post (Web Development): `blog-featured-webdev.jpg` (Suggested size: 800x500 pixels)
+- Thumbnail (Data Science): `blog-thumb-datasci.jpg` (Suggested size: 150x150 pixels, square)
+- Thumbnail (Machine Learning): `blog-thumb-ml.jpg` (Suggested size: 150x150 pixels, square)
+- Thumbnail (Technology): `blog-thumb-tech.jpg` (Suggested size: 150x150 pixels, square)
+- Thumbnail (Web Development): `blog-thumb-webdev.jpg` (Suggested size: 150x150 pixels, square)
+
+### Resume PDF
+- Downloadable Resume File: `revanth_resume.pdf` (Place this in "resources/images/")

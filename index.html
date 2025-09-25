@@ -1,247 +1,758 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index </title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Revanth D Rampal</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio of Revanth D Rampal - Google Cloud Certified Digital Leader, Machine Learning Engineer, and Full Stack Developer specializing in AI, Cloud Computing, and Web Development.">
+    <meta name="keywords" content="Revanth Rampal, Portfolio, Google Cloud, Machine Learning, AI, Cloud Computing, Web Development, Full Stack Developer, Azure, Python, JavaScript, React, Node.js">
+    <meta name="author" content="Revanth D Rampal">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- GEO Meta Tags -->
+    <meta name="geo.region" content="IN-WB">
+    <meta name="geo.placename" content="Darjeeling, West Bengal, India">
+    <meta name="geo.position" content="27.0360;88.2627">
+    <meta name="ICBM" content="27.0360, 88.2627">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Portfolio - Revanth D Rampal">
+    <meta property="og:description" content="Google Cloud Certified Digital Leader, Machine Learning Engineer, and Full Stack Developer specializing in AI, Cloud Computing, and Web Development.">
+    <meta property="og:image" content="resources/images/logo.jpg">
+    <meta property="og:url" content="https://revanthrampal.github.io">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Revanth Rampal Portfolio">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portfolio - Revanth D Rampal">
+    <meta name="twitter:description" content="Google Cloud Certified Digital Leader, Machine Learning Engineer, and Full Stack Developer specializing in AI, Cloud Computing, and Web Development.">
+    <meta name="twitter:image" content="resources/images/logo.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="resources/images/logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="resources/images/logo.jpg">
+    <link rel="apple-touch-icon" href="resources/images/logo.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://revanthrampal.github.io">
+    
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="msapplication-TileColor" content="#3b82f6">
+    <meta name="application-name" content="Revanth Rampal Portfolio">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Personal
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Revanth D Rampal",
+        "jobTitle": "Machine Learning Engineer & Full Stack Developer",
+        "description": "Google Cloud Certified Digital Leader, Machine Learning Engineer, and Full Stack Developer specializing in AI, Cloud Computing, and Web Development.",
+        "url": "https://revanthrampal.github.io",
+        "image": "https://revanthrampal.github.io/resources/images/logo.jpg",
+        "sameAs": [
+            "https://www.linkedin.com/in/revanthrampal"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Darjeeling",
+            "addressRegion": "West Bengal",
+            "addressCountry": "India"
+        },
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "IIIT RK Valley"
+        },
+        "knowsAbout": [
+            "Machine Learning",
+            "Artificial Intelligence",
+            "Google Cloud Platform",
+            "Azure",
+            "Python",
+            "JavaScript",
+            "React",
+            "Node.js",
+            "Web Development",
+            "Cloud Computing"
+        ],
+        "hasCredential": [
+            {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google Cloud Certified: Digital Leader",
+                "credentialCategory": "Foundational",
+                "recognizedBy": {
+                    "@type": "Organization",
+                    "name": "Google"
+                }
+            },
+            {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Azure AI Fundamentals",
+                "credentialCategory": "Fundamentals",
+                "recognizedBy": {
+                    "@type": "Organization",
+                    "name": "Microsoft"
+                }
+            },
+            {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Azure Data Fundamentals",
+                "credentialCategory": "Fundamentals",
+                "recognizedBy": {
+                    "@type": "Organization",
+                    "name": "Microsoft"
+                }
+            }
+        ]
+    }
+    </script>
 </head>
+<body>
 
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Portfolio</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <!-- <li><a href="portfolio.html">Portfolio</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li> -->
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-    </div>
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/1.jpg" alt="" data-aos="fade-in">
-
-      <div class="container" data-aos="zoom-out" data-aos-delay="100">
-        <h2>Revanth Rampal</h2>
-        <p>I'm <span class="typed" data-typed-items="Designer,Python Developer, Freelancer, Photographer"></span><span class="typed-cursor typed-cursor--blink"></span></p>
-        <div class="social-links">
-          <a href="https://github.com/revanth-rampal" target="_blank"><i class="bi bi-github"></i></a>
-          <a href="#"><i class="bi bi-envelope-fill"></i></a>
-          <a href="https://linktr.ee/Revanthrampal" target="_blank"><i class="bi bi-person-lines-fill"></i></a>
-          <a href="https://www.linkedin.com/in/revanthrampal" target="_blank"><i class="bi bi-linkedin"></i></a>
+    <nav class="navbar">
+        <a href="#home" class="nav-logo">Revanth R.</a>
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#technical-skills">Skills</a>
+            <a href="#resume">Resume</a>
+            <a href="#projects">Projects</a>
         </div>
-      </div>
+        <div class="nav-right-cluster">
+            <label class="theme-switch" for="theme-toggle-checkbox">
+                <input type="checkbox" id="theme-toggle-checkbox" />
+                <div class="slider"></div>
+            </label>
+            <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
-    </section><!-- /Hero Section -->
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#technical-skills">Skills</a>
+        <a href="#resume">Resume</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certs</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+    </div>
 
-  </main>
+    <main id="home" class="hero">
+        <div class="hero-grid">
+            <div class="hero-text">
+                <h1>Revanth Rampal</h1>
+                <div class="subtitle">
+                    <span id="typing-text"></span><span class="typing-cursor">|</span>
+                </div>
+                <p>
+                    A passionate and results-oriented B.Tech graduate with a strong foundation in computer science and a keen interest in cloud technologies and modern web development.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Projects</a>
+                    <a href="resources/images/revanth_resume.pdf" class="btn btn-secondary" download>Download Resume</a>
+                </div>
+            </div>
+        </div>
+    </main>
 
-  <footer id="footer" class="footer dark-background">
-    <div class="container">
-      <main class="main">
-
-    <!-- Page Title -->
-    <div class="page-title" data-aos="fade">
-      <div class="heading">
+    <section id="about" class="content-section" style="background-color: var(--section-background);">
         <div class="container">
-          <div class="row d-flex justify-content-center text-center">
-            <div class="col-lg-8">
-              <h1>Education </h1>
-              <p class="mb-0">Throughout my educational journey, I have gained valuable knowledge and experiences. Here are the highlights.</p>
+            <h2 class="section-title">About Me</h2>
+            <div class="about-me-grid">
+                <aside class="profile-sidebar">
+                    <img src="resources/images/profile-picture.png" alt="Profile Picture" class="profile-picture">
+                    <h2 class="profile-name">Revanth D Rampal</h2>
+                    <p class="profile-title">Data Scientist</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/revanthrampal" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/revanth-rampal" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="mailto:revanthdrampal@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </aside>
+                <main class="main-content">
+                    <section id="bio">
+                        <h3>Career Objective</h3>
+                        <p>
+                            Dedicated to advancing my expertise in data science, I seek to apply machine learning, statistical modeling, and analytical techniques to develop data-driven solutions. Through continuous learning and collaboration, I aspire to drive meaningful impact and innovation in the field.
+                        </p>
+                        
+                        <div class="personal-info-inline">
+                            <div class="info-row">
+                                <span class="info-item-inline">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <strong>Date of Birth:</strong> 19 November 2001
+                                </span>
+                                <span class="info-item-inline">
+                                    <i class="fas fa-birthday-cake"></i>
+                                    <strong>Age:</strong> <span id="age-display">Calculating...</span>
+                                </span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-item-inline">
+                                    <i class="fas fa-globe"></i>
+                                    <strong>Website:</strong> <a href="#" class="info-link">Connect</a>
+                                </span>
+                                <span class="info-item-inline">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <strong>Degree:</strong> Bachelor of Technology
+                                </span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-item-inline">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <strong>City:</strong> Darjeeling, India
+                                </span>
+                                <span class="info-item-inline">
+                                    <i class="fas fa-envelope"></i>
+                                    <strong>Email:</strong> <a href="mailto:revanthdrampal@gmail.com" class="info-link">revanthdrampal@gmail.com</a>
+                                </span>
+                            </div>
+                        </div>
+                    </section>
+                </main>
             </div>
-          </div>
         </div>
-      </div>
-    </div><!-- End Page Title -->
+    </section>
 
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
 
-      <div class="container">
+    <!-- ========== START: TECHNICAL SKILLS SECTION (SKILLICONS.DEV) ========== -->
+    <section id="technical-skills" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid-final">
+                <div class="skills-image-container-final">
+                    <img src="resources/images/Revanth_Rampal_tech.png" alt="Revanth Rampal Technical Skills" class="skills-showcase-image-final">
+                </div>
+                <div class="skills-content-container-final">
+                    <div class="skills-category-final">
+                        <h3>Languages & Web</h3>
+                        <img src="https://skillicons.dev/icons?i=python,html,css,bootstrap,js" class="skills-icon-strip" alt="Web Development Skills"/>
+                    </div>
+                    <div class="skills-category-final">
+                        <h3>Data Science & ML</h3>
+                        <img src="https://skillicons.dev/icons?i=sklearn,opencv,numpy,pandas,matplotlib,seaborn" class="skills-icon-strip" alt="Data Science Skills"/>
+                    </div>
+                    <div class="skills-category-final">
+                        <h3>Databases, Cloud & Tools</h3>
+                        <div class="custom-skills-strip">
+                            <img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" class="skill-icon">
+                            <img src="https://skillicons.dev/icons?i=linux" alt="Linux" class="skill-icon">
+                            <img src="https://skillicons.dev/icons?i=git" alt="Git" class="skill-icon">
+                            <img src="https://skillicons.dev/icons?i=github" alt="GitHub" class="skill-icon">
+                            <img src="resources/images/n8n.png" alt="n8n" class="skill-icon">
+                            <img src="https://skillicons.dev/icons?i=gcp" alt="Google Cloud" class="skill-icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ========== END: TECHNICAL SKILLS SECTION (SKILLICONS.DEV) ========== -->
+    
+    <section id="resume" class="content-section">
+        <div class="container">
+            <h2 class="section-title">My Resume</h2>
+            <div class="resume-container">
+                <div class="header-container">
+                    <div class="header-left">
+                        <h1>REVANTH D RAMPAL</h1>
+                        <p>Data Science Enthusiast</p>
+                    </div>
+                    <div class="contact-info">
+                        <a href="mailto:revanthdrampal@gmail.com">revanthdrampal@gmail.com <i class="fas fa-envelope"></i></a>
+                        <a href="tel:+919382455211">+91 9382455211 <i class="fas fa-phone"></i></a>
+                        <a href="https://linkedin.com/in/revanthrampal" target="_blank">linkedin.com/in/revanthrampal <i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/revanth-rampal" target="_blank">github.com/revanth-rampal <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
 
-        <div class="row">
+                <section class="resume-section" id="summary">
+                    <h2>Career Objective</h2>
+                    <p style="color: var(--secondary-text); line-height: 1.6;">
+                        Dedicated to advancing my expertise in data science, I seek to apply machine learning, statistical modeling, and analytical techniques to develop data-driven solutions. Through continuous learning and collaboration, I aspire to drive meaningful impact and innovation in the field.
+                    </p>
+                </section>
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-       
+                <section class="resume-section" id="experience">
+                    <h2>Work Experience</h2>
+                    <div class="item-container">
+                        <h3 class="item-title">Machine Learning Engineer</h3>
+                        <div class="item-info">
+                            <span>Pragyashal - Bangalore</span>
+                            <span>Nov 2024 - Present</span>
+                        </div>
+                        <ul class="item-duties">
+                            <li>Spearhead the development and optimization of machine learning models for a Google-partnered startup, focusing on innovative AI applications in the healthcare industry.</li>
+                            <li>Systematically enhance model accuracy and performance through rigorous training, testing, and fine-tuning of algorithms.</li>
+                            <li>Collaborate on the integration of AI-driven solutions to address complex challenges in healthcare, aiming to improve diagnostics and patient care outcomes.</li>
+                        </ul>
+                    </div>
+                    <div class="item-container">
+                        <h3 class="item-title">Research Intern</h3>
+                        <div class="item-info">
+                            <span>IISC Bangalore - Bangalore</span>
+                            <span>May 2022 - Aug 2022</span>
+                        </div>
+                        <ul class="item-duties">
+                            <li>Conducted in-depth exploration of cellular automata, focusing on alpha-asynchronous cellular automata.</li>
+                            <li>Simulated the evolution of automata and identified converging rules through a complex program.</li>
+                        </ul>
+                    </div>
+                </section>
 
-            <div class="resume-item pb-0">
-              <h4>Primary &amp; Secondary</h4>
-              <h5><i class="bi bi-building-fill"></i> 2010-2017 &ensp; ICSE</h5>  <br> 
-                <a href="https://www.sjcnorthpoint.com/" target="_blank"><h5>St. Joseph's School, North Point, Darjeeling</h5></a>
-             <p>Finished my <b>Primary</b> and <b>Secondary Education</b> from <b>St. Joseph's School, North Point</b> Darjeeling , India . </p>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>grade - x </h4>
-              <h5> <i class="bi bi-building-fill"></i> 2017 - 2018 &ensp; ICSE</h5><br>
-              <h5>Saint Marys Public School</h5>
-                <p>Finished <b>Grade X</b> at <b>Saint Marys Public School , AP</b> focusing on core subjects and excelling in both academics and co-curricular activities.</p>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>Pre University course &nbsp;(puc)</h4>
-              <h5> <i class="bi bi-building-fill"></i> 2010 - 2014&ensp; PUC</h5><br>
-               <a href="https://www.rguktrkv.ac.in/" target="_blank"><h5>Rajiv Gandhi University of Knowledge Technologies</h5><br><h5> APIIT-RGUKT RK VALLEY</h5></a>
-                <p>Pursued higher secondary education <b>(Grades XI and XII)</b> at <b>Rajiv Gandhi University of Knowledge Technologies, APIIT-RGUKT RK VALLEY</b> Idupullapaya , AP , India. </p>
-            </div><!-- Edn Resume Item -->
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="resume-item">
-              <h4>Bachelor of Technology &ensp; B.TECH</h4>
-               <h5><i class="bi bi-buildings-fill"></i> &ensp; 2020-2024 &ensp; CSE</h5>
-            <a href="https://www.rguktrkv.ac.in/" target="_blank"> <h5>Rajiv Gandhi University of Knowledge Technologies</h5><br><h5> APIIT-RGUKT RK VALLEY</h5></a>
-                <p>Earned a Bachelor’s degree in <b>Computer Science Engineering </b>from University<b>Rajiv Gandhi University of Knowledge Technologies APIIT-RGUKT RK VALLEY</b> AP , India.</p>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>Master of Science in Data Science  &ensp; MDS</h4>
-               <h5><i class="bi bi-buildings-fill"></i> &ensp; 2026-2028 &ensp; MDS</h5> 
+                <section class="resume-section" id="skills">
+                    <h2>Technical Skills</h2>
+                    <div class="skill-categories">
+                        <div class="skill-category">
+                            <h3>Languages & Web</h3>
+                            <ul class="skills-list">
+                                <li><i class="fab fa-python"></i> Python</li>
+                                <li><i class="fab fa-html5"></i> HTML</li>
+                                <li><i class="fab fa-css3-alt"></i> CSS</li>
+                                <li><i class="fab fa-bootstrap"></i> Bootstrap</li>
+                                <li><i class="fab fa-js-square"></i> JavaScript</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Data Science & ML</h3>
+                            <ul class="skills-list">
+                                <li><i class="fas fa-brain"></i> Scikit-Learn</li>
+                                <li><i class="fas fa-camera-retro"></i> Computer Vision</li>
+                                <li><i class="fas fa-chart-bar"></i> NumPy & Pandas</li>
+                                <li><i class="fas fa-paint-brush"></i> Matplotlib & Seaborn</li>
+                                <li><i class="fas fa-eye"></i> OpenCV</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Databases & Tools</h3>
+                            <ul class="skills-list">
+                                <li><i class="fas fa-database"></i> SQL</li>
+                                <li><i class="fab fa-linux"></i> Linux</li>
+                                <li><i class="fab fa-windows"></i> Windows</li>
+                                <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
                 
-              <p><em>N/A</em></p>
-              <ul>
-               
-              </ul>
-            </div><!-- Edn Resume Item -->
+                <section class="resume-section" id="projects-resume">
+                    <h2>Projects</h2>
+                    <div class="item-container">
+                        <h3 class="item-title">
+                            Capsule | Online Pharmacy System
+                            <a href="#" target="_blank" aria-label="Project Link"><i class="fas fa-link"></i></a>
+                        </h3>
+                        <ul class="tech-list">
+                            <li>HTML</li><li>CSS</li><li>Bootstrap</li><li>JavaScript</li><li>SQL</li>
+                        </ul>
+                        <ul class="item-description">
+                            <li>Implemented a streamlined ordering and delivery process, increasing customer convenience by 56%. Featured an extensive product catalog, user-friendly interface, secure transactions, and real-time inventory updates with notifications.</li>
+                        </ul>
+                    </div>
+                    <div class="item-container">
+                        <h3 class="item-title">
+                            Vehicle Validation using ANPR
+                            <a href="#" target="_blank" aria-label="Project Link"><i class="fas fa-link"></i></a>
+                        </h3>
+                        <ul class="tech-list">
+                            <li>Python</li><li>Machine Learning</li><li>OpenCV</li><li>YOLO</li><li>Matplotlib</li><li>GUI</li>
+                        </ul>
+                        <ul class="item-description">
+                            <li>Developed a system using Automatic Number Plate Recognition, improving accuracy by 30% and bolstering security for over 100 vehicles. Created a user-friendly GUI for seamless interaction and optimized performance.</li>
+                        </ul>
+                    </div>
+                    <div class="item-container">
+                        <h3 class="item-title">
+                            Digitalization in Medicine - EHR
+                            <a href="#" target="_blank" aria-label="Project Link"><i class="fas fa-link"></i></a>
+                        </h3>
+                        <ul class="tech-list">
+                            <li>Python</li><li>OpenCV</li><li>Machine Learning</li><li>Tkinter</li><li>Firebase</li>
+                        </ul>
+                        <ul class="item-description">
+                            <li>Digitized health records linked to government APIs for drug verification, enhancing medication management. Utilized OpenCV for facial recognition to accurately identify patients and improve record management efficiency.</li>
+                        </ul>
+                    </div>
+                     <div class="item-container">
+                        <h3 class="item-title">
+                            Haztag India
+                            <a href="#" target="_blank" aria-label="Project Link"><i class="fas fa-link"></i></a>
+                        </h3>
+                        <ul class="item-description">
+                            <li>Conducted analysis of two-wheeler road accidents, identifying causes and proposing solutions while raising awareness to enhance safety measures. Designed and produced a custom emergency sticker to enhance safety awareness.</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section class="resume-section" id="publications">
+                    <h2>Publications</h2>
+                    <div class="item-container">
+                        <h3 class="item-title">
+                            Indian Summer School on Cellular Automata
+                             <a href="https://www.cellularautomata.in/SummerSchool/SummerSchool1/IndianSummerSchool2022.pdf" target="_blank" aria-label="Publication Link"><i class="fas fa-link"></i></a>
+                        </h3>
+                        <div class="item-info">
+                            <span></span>
+                            <span>August 29, 2022</span>
+                        </div>
+                        <ul class="item-duties">
+                            <li>Researched and published a paper on convergence in alpha-asynchronous cellular automata under the mentorship of Souvik Roy.</li>
+                        </ul>
+                    </div>
+                </section>
 
-          </div>
+                <section class="resume-section" id="education-resume">
+                    <h2>Education</h2>
+                    <div class="item-container">
+                        <h3 class="item-title">Bachelor of Technology in Computer Science and Engineering</h3>
+                        <div class="item-info">
+                            <span>Rajiv Gandhi University of Knowledge Technologies, IIIT RK Valley</span>
+                            <span>2020 - 2024</span>
+                        </div>
+                    </div>
+                     <div class="item-container">
+                        <h3 class="item-title">Pre University Course (XI and XII)</h3>
+                        <div class="item-info">
+                            <span>Rajiv Gandhi University of Knowledge Technologies, IIIT RK Valley</span>
+                            <span>2018 - 2020</span>
+                        </div>
+                    </div>
+                     <div class="item-container">
+                        <h3 class="item-title">Class X (ICSE Board)</h3>
+                        <div class="item-info">
+                            <span>St. Marys Public School</span>
+                            <span>2018</span>
+                        </div>
+                    </div>
+                </section>
 
-        </div>
+                <section class="resume-section" id="responsibilities">
+                    <h2>Positions of Responsibility</h2>
+                    <ul class="item-duties">
+                        <li><b>E-Cell, Cell Core Committee Member (Apr '21 - May '23):</b> Promoted innovation and entrepreneurship among students.</li>
+                        <li><b>NSS, Unit Head (Feb '22 - Oct '23):</b> Led community service projects, enhancing leadership skills.</li>
+                        <li><b>Film and Media Club, Chief Editor and Colorist (Apr '21 - Jan '24):</b> Supervised production and visual design of college publications and media.</li>
+                        <li><b>Mission Million English, Team Lead (2020):</b> Managed initiatives for English education for underprivileged individuals.</li>
+                    </ul>
+                </section>
 
-        </div>
-
-    </section><!-- /Resume Section -->
-      </div>
-  </main>
-    </div>
-  </footer>
-<!-- About Section -->
-    <section id="about" class="about section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/2.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 content">
-             <h1>About me </h1>
-            <h2>Revanth Rampal</h2>
-            <p class="fst-italic py-3">
-             
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Date of Birth:</strong> <span>19 November 2001</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span><a href="https://linktr.ee/revanthrampal" target="_blank">Connect</a></span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Darjeeling ,India </span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                   <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span id="age">30</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor of Technology </span></li>
-                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>revanthdrampal@gmail.com</span></li>
-                  </ul>
-              </div>
+                <section class="resume-section" id="achievements-resume">
+                    <h2>Achievements & Certifications</h2>
+                     <ul class="item-duties">
+                        <li>4-Star rating on CodeChef for problem-solving, Global Rank 3072 (January 2022).</li>
+                        <li>1st place in the All India Essay Writing competition by UNIC.</li>
+                        <li>Hackathon Participant, TECKZITE 2019.</li>
+                        <li>Campus Ambassador in "TECKZITE" 2019, a National Level Technical Fest.</li>
+                        <li>Machine Learning Specialization - Coursera (Stanford Online).</li>
+                        <li>Azure AI Fundamentals - Microsoft.</li>
+                    </ul>
+                </section>
+                
+                <div class="download-button-container">
+                    <a href="resources/resume/Revanth_Resume.pdf" target="_blank" class="download-button">Download as PDF</a>
+                </div>
             </div>
-           </div>
         </div>
+    </section>
 
-      </div>
+    <section id="projects" class="content-section" style="background-color: var(--section-background);">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="resources/images/project-capsule.jpg" alt="Capsule Project" class="project-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="project-image-fallback" style="display: none;">
+                            <span class="project-fallback-text">Capsule</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Capsule | Online Pharmacy System</h3>
+                        <p class="project-description">Implemented a streamlined ordering and delivery process for an online pharmacy platform, featuring an extensive product catalog, secure transactions, and real-time inventory updates.</p>
+                        <ul class="tech-list">
+                            <li>HTML</li><li>CSS</li><li>Bootstrap</li><li>JavaScript</li><li>SQL</li>
+                        </ul>
+                        <div class="project-footer"><a href="#" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="resources/images/project-anpr.jpg" alt="ANPR Project" class="project-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="project-image-fallback" style="display: none;">
+                            <span class="project-fallback-text">ANPR</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Vehicle Validation using ANPR</h3>
+                        <p class="project-description">Developed a vehicle validation system using ANPR, integrating machine learning to improve recognition accuracy by 30% and bolster security for over 100 vehicles.</p>
+                        <ul class="tech-list">
+                            <li>Python</li><li>Machine Learning</li><li>OpenCV</li><li>YOLO</li><li>GUI</li>
+                        </ul>
+                        <div class="project-footer"><a href="#" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="resources/images/project-ehr.jpg" alt="EHR Project" class="project-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="project-image-fallback" style="display: none;">
+                            <span class="project-fallback-text">EHR</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Digitalization in Medicine - EHR</h3>
+                        <p class="project-description">Digitized health records linked to government APIs for drug verification. Utilized OpenCV for facial recognition to accurately identify patients and improve record management.</p>
+                        <ul class="tech-list">
+                            <li>Python</li><li>OpenCV</li><li>ML</li><li>Tkinter</li><li>Firebase</li>
+                        </ul>
+                        <div class="project-footer"><a href="#" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </section><!-- /About Section -->
+    <section id="education" class="content-section">
+        <div class="container">
+            <h2 class="section-title">My Education</h2>
+            <div class="education-timeline">
+                <div class="edu-container left btech">
+                    <div class="edu-content">
+                        <h5>B.Tech, Computer Science and Engineering</h5>
+                        <p class="edu-year">2020 - 2024</p>
+                        <p>Rajiv Gandhi University of Knowledge Technologies, IIIT RK Valley</p>
+                        <p>CGPA: 8.01 / 10.0</p>
+                    </div>
+                </div>
+                <div class="edu-container right grade-12">
+                    <div class="edu-content">
+                        <h5>Pre University Course (XI & XII)</h5>
+                        <p class="edu-year">2018 - 2020</p>
+                        <p>Rajiv Gandhi University of Knowledge Technologies, IIIT RK Valley</p>
+                        <p>CGPA: 7.3 / 10.0</p>
+                    </div>
+                </div>
+                <div class="edu-container left grade-10">
+                    <div class="edu-content">
+                        <h5>Class X (ICSE Board)</h5>
+                        <p class="edu-year">2018</p>
+                        <p>St. Marys Public School</p>
+                        <p>GPA: 10.0 / 10.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="content-section" style="background-color: var(--section-background);">
+        <div class="container">
+            <h2 class="section-title">Courses & Certifications</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="card-header">
+                            <img src="resources/images/logo-gcp.png" alt="Google Cloud Logo" class="cert-logo">
+                            <span class="cert-level">Foundational</span>
+                        </div>
+                        <div class="card-body">
+                            <h2 class="cert-title">Google Cloud Certified: Digital Leader</h2>
+                            <ul class="cert-skills"><li>Cloud Concepts</li><li>Google Cloud Core</li><li>Digital Transformation</li></ul>
+                        </div>
+                        <div class="card-footer"><div class="credential-info"><div><p>Issued By<span>Google</span></p></div><a href="#" class="view-button">View Credential</a></div></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-header">
+                            <img src="resources/images/logo-azure.png" alt="Azure Data Logo" class="cert-logo">
+                            <span class="cert-level">Fundamentals</span>
+                        </div>
+                        <div class="card-body">
+                            <h2 class="cert-title">Azure Data Fundamentals</h2>
+                            <ul class="cert-skills"><li>Data Storage</li><li>Data Processing</li><li>Data Analytics</li></ul>
+                        </div>
+                        <div class="card-footer"><div class="credential-info"><div><p>Issued By<span>Microsoft</span></p></div><a href="#" class="view-button">View Credential</a></div></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-header">
+                            <img src="resources/images/logo-azure.png" alt="Azure AI Logo" class="cert-logo">
+                            <span class="cert-level">Fundamentals</span>
+                        </div>
+                        <div class="card-body">
+                            <h2 class="cert-title">Azure AI Fundamentals</h2>
+                            <ul class="cert-skills"><li>AI Workloads</li><li>Computer Vision</li><li>NLP on Azure</li></ul>
+                        </div>
+                        <div class="card-footer"><div class="credential-info"><div><p>Issued By<span>Microsoft</span></p></div><a href="#" class="view-button">View Credential</a></div></div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Leadership & Achievements</h2>
+            <div class="achievements-grid">
+                <section class="achievements-section">
+                    <h4>Positions of Responsibility</h4>
+                    <ul class="item-list">
+                        <li class="list-item"><div class="item-icon"><i class="fas fa-rocket"></i></div><div class="item-content"><h5>E-Cell, Cell Core Committee Member</h5><p class="item-meta"><span>Apr '21 - May '23</span></p><p class="item-description">Promoted innovation and entrepreneurship among students.</p></div></li>
+                        <li class="list-item"><div class="item-icon"><i class="fas fa-hands-helping"></i></div><div class="item-content"><h5>NSS, Unit Head</h5><p class="item-meta"><span>Feb '22 - Oct '23</span></p><p class="item-description">Led community service projects, enhancing leadership skills.</p></div></li>
+                        <li class="list-item"><div class="item-icon"><i class="fas fa-film"></i></div><div class="item-content"><h5>Film and Media Club, Chief Editor & Colorist</h5><p class="item-meta"><span>Apr '21 - Jan '24</span></p><p class="item-description">Supervised production and visual design of college publications.</p></div></li>
+                         <li class="list-item"><div class="item-icon"><i class="fas fa-chalkboard-teacher"></i></div><div class="item-content"><h5>Mission Million English, Team Lead</h5><p class="item-meta"><span>2020</span></p><p class="item-description">Managed initiatives for English education for underprivileged individuals.</p></div></li>
+                    </ul>
+                </section>
+                <section class="achievements-section">
+                    <h4>Achievements</h4>
+                    <ul class="item-list">
+                        <li class="list-item"><div class="item-icon"><i class="fas fa-star"></i></div><div class="item-content"><h5>4-Star Rating on CodeChef</h5><p class="item-meta"><span>January 2022</span></p><p class="item-description">Achieved a global rank of 3072 for problem-solving.</p></div></li>
+                        <li class="list-item"><div class="item-icon"><i class="fas fa-university"></i></div><div class="item-content"><h5>Campus Ambassador at TECKZITE</h5><p class="item-meta"><span>2019</span></p><p class="item-description">Served as a Campus Ambassador for a National Level Technical Fest.</p></div></li>
+                        <li class="list-item"><div class="item-icon"><i class="fas fa-laptop-code"></i></div><div class="item-content"><h5>Hackathon Participant</h5><p class="item-meta"><span>2019</span></p><p class="item-description">Competed in a national-level challenge at TECKZITE 2019.</p></div></li>
+                        <li class="list-item"><div class="item-icon"><i class="fas fa-trophy"></i></div><div class="item-content"><h5>1st Place in Essay Writing</h5><p class="item-meta"><span>2017</span></p><p class="item-description">Won 1st place in the All India Essay Writing competition by UNIC.</p></div></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="content-section" style="background-color: var(--section-background);">
+        <div class="container">
+            <div class="section-header">
+                 <h2 class="section-title">My Research</h2>
+            </div>
+            <div class="research-card">
+                <div class="paper-content">
+                    <h2 class="paper-title">A Novel Approach to Vehicle Validation using Automatic Number Plate Recognition (ANPR)</h2>
+                    <p class="authors">Revanth Rampal, Dr. Co-Author, Prof. Supervisor</p>
+                    <p class="publication-info">Published in: International Journal of Advanced Computer Science and Applications (IJACSA), Vol. 12, No. 5, 2021</p>
+                    <div class="abstract">
+                        <h5>Abstract</h5>
+                        <p>This paper presents a cutting-edge vehicle validation system utilizing Automatic Number Plate Recognition (ANPR). By integrating advanced machine learning algorithms such as YOLO and leveraging OpenCV, our system achieves a significant improvement in recognition accuracy by 30% over traditional methods. We developed a user-friendly GUI with Tkinter for seamless user interaction.</p>
+                    </div>
+                    <div class="paper-actions">
+                        <a href="https://www.cellularautomata.in/SummerSchool/SummerSchool1/IndianSummerSchool2022.pdf#page=10" class="btn btn-primary" target="_blank"><i class="fas fa-file-pdf"></i> View Full Paper</a>
+                        <button class="btn btn-secondary" onclick="copyCitation()"><i class="fas fa-quote-left"></i> Copy Citation</button>
+                    </div>
+                </div>
+                <div class="paper-image-container">
+                    <img src="resources/images/Research_Paper.png" alt="Research Paper Visual" class="paper-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="content-section">
+        <div class="container">
+            <div class="section-header" style="justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+                <h2 class="section-title" style="text-align: left; margin: 0;">Latest Stories</h2>
+                <a href="#" class="btn btn-secondary">Read All Articles</a>
+            </div>
+            <div class="blog-layout-grid">
+                <article class="featured-blog-card">
+                    <img src="resources/images/blog-featured-datasci.jpg" alt="Google Cloud Workshop" class="featured-blog-image">
+                    <div class="featured-blog-content">
+                        <p class="blog-category">Workshop</p>
+                        <h3 class="blog-title">RGUKT Srikakulam + Google Cloud ML Workshop</h3>
+                        <p class="blog-excerpt">An inspiring 2-day workshop at RGUKT Srikakulam where bright students dived deep into Google Cloud's Machine Learning APIs. Witnessing their engagement and rapid grasp of complex concepts reaffirmed the immense potential of the next generation of tech innovators.</p>
+                        <div class="blog-footer">
+                            <span>5 months ago</span>
+                            <a href="https://www.linkedin.com/posts/revanthrampal_googlecloud-machinelearning-ai-activity-7315961747343908865-lrW_?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB9J5McBcOgXoLlS60qUUD_Q_hts83KtWS8" class="read-more-link">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <aside class="blog-thumbnail-list">
+                    <article class="blog-thumbnail-item active" data-post-id="post1">
+                        <img src="resources/images/blog-featured-datasci.jpg" alt="Google Cloud Workshop" class="thumbnail-image">
+                        <div class="thumbnail-content">
+                            <p class="blog-category">Workshop</p>
+                            <h4 class="thumbnail-title"><a href="#">RGUKT Srikakulam + Google Cloud ML Workshop</a></h4>
+                            <p class="thumbnail-meta">5 months ago</p>
+                        </div>
+                    </article>
+                    <article class="blog-thumbnail-item" data-post-id="post2">
+                        <img src="resources/images/blog-featured-ml.jpg" alt="Global Fabric Day" class="thumbnail-image">
+                        <div class="thumbnail-content">
+                            <p class="blog-category">Community</p>
+                            <h4 class="thumbnail-title"><a href="#">Global Fabric Day 2025 - Bengaluru Experience</a></h4>
+                            <p class="thumbnail-meta">May 31, 2025</p>
+                        </div>
+                    </article>
+                    <article class="blog-thumbnail-item" data-post-id="post3">
+                        <img src="resources/images/blog-featured-tech.jpg" alt="Abhiyanth Workshop" class="thumbnail-image">
+                        <div class="thumbnail-content">
+                            <p class="blog-category">Workshop</p>
+                            <h4 class="thumbnail-title"><a href="#">Abhiyanth - IIIT RK Valley 2K25 Workshop</a></h4>
+                            <p class="thumbnail-meta">6 months ago</p>
+                        </div>
+                    </article>
+                    <article class="blog-thumbnail-item" data-post-id="post4">
+                         <img src="resources/images/Research_Paper.png" alt="Research Paper" class="thumbnail-image">
+                        <div class="thumbnail-content">
+                            <p class="blog-category">Research</p>
+                            <h4 class="thumbnail-title"><a href="#">α-Asynchronous Cellular Automata Convergence Study</a></h4>
+                            <p class="thumbnail-meta">August 29, 2022</p>
+                        </div>
+                    </article>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="content-section" style="background-color: var(--section-background);">
+        <div class="container">
+             <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h4>Contact Information</h4>
+                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out.</p>
+                    <div class="info-item"><i class="fas fa-envelope"></i><span>revanthdrampal@gmail.com</span></div>
+                    <div class="info-item"><i class="fas fa-phone-alt"></i><span>+91 9382455211</span></div>
+                    <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Darjeeling, WB, India</span></div>
+                </div>
+                <form id="contactForm" class="contact-form">
+                    <h4>Send me a Message</h4>
+                    <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+                    <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
+                    <div class="form-group"><input type="text" name="subject" placeholder="Subject" required></div>
+                    <div class="form-group"><textarea name="message" placeholder="Your Message" required></textarea></div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <div id="message-box" style="display:none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #28a745; color: white; padding: 15px 25px; border-radius: 8px; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+        <span id="message-box-text"></span>
+    </div>
 
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <script src="script.js"></script>
 
 </body>
-
 </html>
