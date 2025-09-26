@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Portfolio - Revanth D Rampal</title>
     
     <!-- SEO Meta Tags -->
@@ -148,6 +148,9 @@
     </nav>
 
     <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close Navigation">
+            <i class="fas fa-times"></i>
+        </button>
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#technical-skills">Skills</a>
@@ -568,7 +571,9 @@
     <section id="certifications" class="content-section" style="background-color: var(--section-background);">
         <div class="container">
             <h2 class="section-title">Courses & Certifications</h2>
-            <div class="swiper mySwiper">
+            
+            <!-- Desktop/Tablet Swiper -->
+            <div class="swiper mySwiper desktop-swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="card-header">
@@ -606,6 +611,87 @@
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
+            </div>
+
+            <!-- Mobile Deck of Cards -->
+            <div class="mobile-cert-deck">
+                <div class="cert-deck-container">
+                    <div class="cert-card active" data-index="0">
+                        <div class="card-header">
+                            <img src="resources/images/logo-gcp.png" alt="Google Cloud Logo" class="cert-logo">
+                            <span class="cert-level">Foundational</span>
+                        </div>
+                        <div class="card-body">
+                            <h2 class="cert-title">Google Cloud Certified: Digital Leader</h2>
+                            <ul class="cert-skills">
+                                <li>Cloud Concepts</li>
+                                <li>Google Cloud Core</li>
+                                <li>Digital Transformation</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="credential-info">
+                                <div>
+                                    <p>Issued By<span>Google</span></p>
+                                </div>
+                                <a href="#" class="view-button">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-card" data-index="1">
+                        <div class="card-header">
+                            <img src="resources/images/logo-azure.png" alt="Azure Data Logo" class="cert-logo">
+                            <span class="cert-level">Fundamentals</span>
+                        </div>
+                        <div class="card-body">
+                            <h2 class="cert-title">Azure Data Fundamentals</h2>
+                            <ul class="cert-skills">
+                                <li>Data Storage</li>
+                                <li>Data Processing</li>
+                                <li>Data Analytics</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="credential-info">
+                                <div>
+                                    <p>Issued By<span>Microsoft</span></p>
+                                </div>
+                                <a href="#" class="view-button">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-card" data-index="2">
+                        <div class="card-header">
+                            <img src="resources/images/logo-azure.png" alt="Azure AI Logo" class="cert-logo">
+                            <span class="cert-level">Fundamentals</span>
+                        </div>
+                        <div class="card-body">
+                            <h2 class="cert-title">Azure AI Fundamentals</h2>
+                            <ul class="cert-skills">
+                                <li>AI Workloads</li>
+                                <li>Computer Vision</li>
+                                <li>NLP on Azure</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="credential-info">
+                                <div>
+                                    <p>Issued By<span>Microsoft</span></p>
+                                </div>
+                                <a href="#" class="view-button">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Navigation Dots -->
+                <div class="mobile-cert-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                </div>
             </div>
         </div>
     </section>

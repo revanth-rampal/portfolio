@@ -53,6 +53,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Mobile Navigation Logic ---
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    
+    function closeMobileNav() {
+        mobileNavMenu.classList.remove('show-nav');
+        const icon = navToggleButton.querySelector('i');
+        if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    }
+    
     if (navToggleButton && mobileNavMenu) {
         navToggleButton.addEventListener('click', () => {
             mobileNavMenu.classList.toggle('show-nav');
@@ -63,15 +74,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        if (mobileNavClose) {
+            mobileNavClose.addEventListener('click', closeMobileNav);
+        }
+
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNavMenu.classList.remove('show-nav');
-                const icon = navToggleButton.querySelector('i');
-                if (icon) {
-                   icon.classList.remove('fa-times');
-                   icon.classList.add('fa-bars');
-                }
-            });
+            link.addEventListener('click', closeMobileNav);
+        });
+        
+        // Close mobile nav when clicking outside
+        mobileNavMenu.addEventListener('click', (e) => {
+            if (e.target === mobileNavMenu) {
+                closeMobileNav();
+            }
         });
     }
 
@@ -139,12 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const elementsToAnimate = document.querySelectorAll('.edu-container, .list-item');
     elementsToAnimate.forEach(el => observer.observe(el));
     
-    // --- Initialize Swiper ---
-    var swiper = new Swiper(".mySwiper", {
+    // --- Initialize Swiper (Desktop/Tablet) ---
+    var swiper = new Swiper(".desktop-swiper", {
         effect: "coverflow",
         grabCursor: true,
         centeredSlides: true,
-        slidesPerView: 3, // Show 3 slides to ensure all are visible
+        slidesPerView: 1, // Show 1 slide on mobile
         loop: false, // Disable loop
         initialSlide: 0, // Start with the first slide (Google Cloud) in center
         coverflowEffect: { 
@@ -159,6 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
             prevEl: ".swiper-button-prev", 
         },
         breakpoints: {
+            // when window width is >= 600px
+            600: {
+                slidesPerView: 2,
+            },
             // when window width is >= 768px
             768: {
                 slidesPerView: 3,
@@ -177,6 +196,90 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    // --- Mobile Certifications Deck of Cards ---
+    const mobileCertDeck = document.querySelector('.mobile-cert-deck');
+    if (mobileCertDeck) {
+        const certCards = document.querySelectorAll('.cert-card');
+        const dots = document.querySelectorAll('.mobile-cert-dots .dot');
+        let currentIndex = 0;
+        let startX = 0;
+        let startY = 0;
+        let isDragging = false;
+
+        function updateCards() {
+            certCards.forEach((card, index) => {
+                card.classList.remove('active', 'prev', 'next');
+                
+                if (index === currentIndex) {
+                    card.classList.add('active');
+                } else if (index === (currentIndex - 1 + certCards.length) % certCards.length) {
+                    card.classList.add('prev');
+                } else if (index === (currentIndex + 1) % certCards.length) {
+                    card.classList.add('next');
+                }
+            });
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function nextCard() {
+            currentIndex = (currentIndex + 1) % certCards.length;
+            updateCards();
+        }
+
+        function prevCard() {
+            currentIndex = (currentIndex - 1 + certCards.length) % certCards.length;
+            updateCards();
+        }
+
+        // Touch events for swipe
+        const deckContainer = document.querySelector('.cert-deck-container');
+        
+        deckContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            isDragging = true;
+        });
+
+        deckContainer.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+        });
+
+        deckContainer.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            
+            const endX = e.changedTouches[0].clientX;
+            const endY = e.changedTouches[0].clientY;
+            const diffX = startX - endX;
+            const diffY = startY - endY;
+            
+            // Only trigger swipe if horizontal movement is greater than vertical
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    nextCard();
+                } else {
+                    prevCard();
+                }
+            }
+            
+            isDragging = false;
+        });
+
+        // Click events for dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateCards();
+            });
+        });
+
+        // Initialize
+        updateCards();
+    }
 
     // --- BLOG INTERACTIVITY LOGIC ---
     const blogPosts = [
