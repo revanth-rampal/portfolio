@@ -103,6 +103,8 @@ body {
     border-radius: 999px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     animation: floatIn 1s ease-out;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .nav-logo {
@@ -111,6 +113,8 @@ body {
     color: var(--primary-text);
     text-decoration: none;
     padding: 0.5rem 1rem;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
 /* Desktop Nav Links */
@@ -119,16 +123,19 @@ body {
     background-color: rgba(128, 128, 128, 0.1);
     border-radius: 999px;
     padding: 0.25rem;
+    flex-shrink: 1;
+    min-width: 0;
 }
 
 .nav-links a {
     color: var(--secondary-text);
     text-decoration: none;
     font-weight: 500;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 999px;
     transition: color 0.3s ease, background-color 0.3s ease;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -145,6 +152,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding-right: 0.5rem;
+    flex-shrink: 0;
 }
 
 /* Mobile Nav Toggle Button */
@@ -712,6 +720,86 @@ input:checked + .slider:before { transform: translateX(26px); }
 .project-footer { margin-top: auto; border-top: 1px solid var(--border-color); padding-top: 1rem; }
 .project-link { color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; }
 .project-link:hover { text-decoration: underline; }
+
+/* Freelancing Section */
+.freelancing-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.freelancing-intro {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+.freelancing-intro h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--h-color);
+    margin: 0 0 1rem 0;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+.freelancing-role {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin: 0.5rem 0 1rem 0;
+}
+.freelancing-description {
+    color: var(--secondary-text);
+    line-height: 1.8;
+    font-size: 1rem;
+    margin: 0;
+}
+.freelancing-gallery {
+    margin-top: 2rem;
+}
+.freelancing-gallery h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--h-color);
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.gallery-item {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+.gallery-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    background-color: var(--background-color);
+}
 
 /* Education Section */
 .education-timeline { position: relative; max-width: 800px; margin: 0 auto; }
@@ -1374,6 +1462,11 @@ input:checked + .slider:before { transform: translateX(26px); }
     
     .nav-links { 
         display: flex; 
+        gap: 0.25rem;
+    }
+    
+    .navbar {
+        max-width: 800px;
     }
 
     .about-me-grid { 
