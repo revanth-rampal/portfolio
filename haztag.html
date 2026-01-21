@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Haztag India - Rider Safety Information System</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Haztag India - A comprehensive identification solution designed for motorcyclists. Providing instant access to critical medical data for first responders through durable QR technology.">
+    <meta name="keywords" content="Haztag, Rider Safety, Motorcycle Safety, Emergency Medical ID, QR Code, Road Safety">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Haztag India - Rider Safety Information System">
+    <meta property="og:description" content="A comprehensive identification solution designed for motorcyclists. Providing instant access to critical medical data for first responders.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="resources/images/logo.jpg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body::selection {
+            background-color: #fbbf24;
+            color: black;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            z-index: 50;
+            transition: all 0.3s;
+            padding: 1.5rem 0;
+            background: transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-brand-icon {
+            width: 2rem;
+            height: 2rem;
+            background: #fbbf24;
+            border-radius: 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-brand-icon i {
+            color: black;
+            font-size: 1.25rem;
+        }
+
+        .nav-brand-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .nav-link {
+            color: #9ca3af;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #fbbf24;
+        }
+
+        .nav-button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transform: skewX(-10deg);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button span {
+            display: block;
+            transform: skewX(10deg);
+        }
+
+        .nav-button:hover {
+            background: #fbbf24;
+            color: black;
+            border-color: #fbbf24;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            color: white;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #111;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu .nav-link {
+            text-align: left;
+            padding: 0.5rem 0;
+        }
+
+        .mobile-menu .nav-button {
+            width: 100%;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        header {
+            position: relative;
+            padding-top: 8rem;
+            padding-bottom: 5rem;
+            overflow: hidden;
+        }
+
+        @media (min-width: 1024px) {
+            header {
+                padding-top: 12rem;
+                padding-bottom: 8rem;
+            }
+        }
+
+        .hero-bg-1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to left, rgba(251, 191, 36, 0.05), transparent);
+            pointer-events: none;
+        }
+
+        .hero-bg-2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, #0a0a0a, transparent);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            padding: 0.25rem 1rem;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 9999px;
+            background: rgba(251, 191, 36, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .hero-badge span {
+            color: #fbbf24;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 4.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 5rem;
+            }
+        }
+
+        .hero-title br {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title br {
+                display: block;
+            }
+        }
+
+        .hero-title-gradient {
+            background: linear-gradient(to right, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            color: #9ca3af;
+            font-size: 1.125rem;
+            max-width: 42rem;
+            margin: 0 auto 2.5rem;
+            line-height: 1.75;
+        }
+
+        @media (min-width: 768px) {
+            .hero-description {
+                font-size: 1.25rem;
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+
+        .btn-primary {
+            background: white;
+            color: black;
+            padding: 1rem 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #e5e7eb;
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(251, 191, 36, 0.5);
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        /* Interactive Demo Section */
+        .demo-section {
+            padding: 6rem 0;
+            background: #0f0f0f;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .demo-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        @media (min-width: 768px) {
+            .demo-title {
+                font-size: 3rem;
+            }
+        }
+
+        .demo-subtitle {
+            color: #9ca3af;
+        }
+
+        .demo-content {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2.5rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .demo-content {
+                padding: 5rem 0;
+            }
+        }
+
+        .sticker-container {
+            position: relative;
+            z-index: 20;
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+        .sticker-container:hover {
+            transform: scale(1.02);
+        }
+
+        .sticker-glow {
+            position: absolute;
+            inset: 0;
+            background: rgba(251, 191, 36, 0.2);
+            filter: blur(60px);
+            border-radius: 50%;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .sticker-container:hover .sticker-glow {
+            opacity: 0.7;
+        }
+
+        .sticker {
+            width: 16rem;
+            height: 16rem;
+            background: #1a1a1a;
+            border-radius: 1.5rem;
+            border: 4px solid white;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .sticker {
+                width: 20rem;
+                height: 20rem;
+            }
+        }
+
+        .sticker-stripe-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1rem;
+            background: repeating-linear-gradient(45deg, #fbbf24, #fbbf24 10px, #000 10px, #000 20px);
+        }
+
+        .sticker-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .sticker-logo-icon {
+            color: #fbbf24;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .sticker-logo-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            font-style: italic;
+            letter-spacing: -0.05em;
+            color: white;
+        }
+
+        .sticker-qr {
+            width: 8rem;
+            height: 8rem;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .sticker-qr-inner {
+            width: 100%;
+            height: 100%;
+            background: black;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sticker-qr-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.8;
+            background-image: radial-gradient(white 2px, transparent 2px);
+            background-size: 8px 8px;
+        }
+
+        .sticker-qr-corner {
+            position: absolute;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 4px solid white;
+        }
+
+        .sticker-qr-corner.top-left {
+            top: 0.25rem;
+            left: 0.25rem;
+        }
+
+        .sticker-qr-corner.top-right {
+            top: 0.25rem;
+            right: 0.25rem;
+        }
+
+        .sticker-qr-corner.bottom-left {
+            bottom: 0.25rem;
+            left: 0.25rem;
+        }
+
+        .sticker-qr-scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
+            animation: scan 2s ease-in-out infinite;
+        }
+
+        @keyframes scan {
+            0% {
+                top: 0%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        .sticker-text {
+            text-align: center;
+        }
+
+        .sticker-text-label {
+            font-size: 0.625rem;
+            font-weight: 700;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .sticker-text-scan {
+            font-size: 0.625rem;
+            color: #fbbf24;
+            margin-top: 0.25rem;
+        }
+
+        .sticker-stripe-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1rem;
+            background: repeating-linear-gradient(45deg, #fbbf24, #fbbf24 10px, #000 10px, #000 20px);
+        }
+
+        /* Info Tags */
+        .info-tags-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .info-tag {
+            position: absolute;
+            pointer-events: auto;
+            transition: all 0.5s;
+            opacity: 0.3;
+            transform: scale(0.95);
+            z-index: 10;
+        }
+
+        .info-tag.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 30;
+        }
+
+        .info-tag.top-left {
+            top: 0;
+            left: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .info-tag.top-left {
+                top: 2.5rem;
+                left: 5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .info-tag.top-left {
+                left: 25%;
+            }
+        }
+
+        .info-tag.top-right {
+            top: 0;
+            right: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .info-tag.top-right {
+                top: 2.5rem;
+                right: 5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .info-tag.top-right {
+                right: 25%;
+            }
+        }
+
+        .info-tag.bottom-left {
+            bottom: 0;
+            left: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .info-tag.bottom-left {
+                bottom: 2.5rem;
+                left: 5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .info-tag.bottom-left {
+                left: 25%;
+            }
+        }
+
+        .info-tag.bottom-right {
+            bottom: 0;
+            right: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .info-tag.bottom-right {
+                bottom: 2.5rem;
+                right: 5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .info-tag.bottom-right {
+                right: 25%;
+            }
+        }
+
+        .info-tag-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-tag-content.left {
+            align-items: flex-start;
+        }
+
+        .info-tag-content.right {
+            align-items: flex-end;
+        }
+
+        .info-tag-line {
+            height: 4rem;
+            width: 2px;
+            background: linear-gradient(to bottom, #fbbf24, transparent);
+            margin-bottom: 0.5rem;
+            transition: all 0.5s;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .info-tag-line {
+                display: block;
+            }
+        }
+
+        .info-tag.active .info-tag-line {
+            height: 6rem;
+            opacity: 1;
+        }
+
+        .info-tag-card {
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            min-width: 240px;
+            transition: border-color 0.3s;
+        }
+
+        .info-tag-card:hover {
+            border-color: rgba(251, 191, 36, 0.5);
+        }
+
+        .info-tag-icon {
+            background: rgba(251, 191, 36, 0.1);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            color: #fbbf24;
+            transition: all 0.3s;
+        }
+
+        .info-tag-card:hover .info-tag-icon {
+            background: #fbbf24;
+            color: black;
+        }
+
+        .info-tag-text {
+            text-align: left;
+        }
+
+        .info-tag-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .info-tag-data {
+            color: white;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        /* Specs Section */
+        .specs-section {
+            padding: 6rem 0;
+            background: #0a0a0a;
+        }
+
+        .specs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .specs-header {
+            margin-bottom: 4rem;
+        }
+
+        .specs-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        @media (min-width: 768px) {
+            .specs-title {
+                font-size: 3rem;
+            }
+        }
+
+        .specs-subtitle {
+            color: #9ca3af;
+            max-width: 42rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .specs-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .specs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .spec-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 0.75rem;
+            transition: background-color 0.3s;
+        }
+
+        .spec-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .spec-icon {
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+            color: #fbbf24;
+        }
+
+        .spec-content h4 {
+            color: #6b7280;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .spec-content .spec-value {
+            color: white;
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .spec-content .spec-desc {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            line-height: 1.75;
+        }
+
+        .specs-visual {
+            background: #111;
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .specs-visual-label {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 0.75rem;
+            font-family: monospace;
+            color: #6b7280;
+        }
+
+        .specs-layers {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .spec-layer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .spec-layer-bar {
+            flex: 1;
+            border-radius: 0.25rem;
+        }
+
+        .spec-layer-label {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            width: 8rem;
+        }
+
+        .spec-layer-1 {
+            height: 0.5rem;
+            background: #374151;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spec-layer-1::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(251, 191, 36, 0.2);
+        }
+
+        .spec-layer-2 {
+            height: 1rem;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-size: 0.5rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .spec-layer-3 {
+            height: 0.75rem;
+            background: #4b5563;
+        }
+
+        .spec-layer-4 {
+            height: 0.25rem;
+            background: #fbbf24;
+        }
+
+        .specs-visual-quote {
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* Technology Section */
+        .tech-section {
+            padding: 6rem 0;
+            background: #111;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tech-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .tech-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        @media (min-width: 1024px) {
+            .tech-grid {
+                flex-direction: row;
+            }
+        }
+
+        .tech-content {
+            flex: 1;
+        }
+
+        @media (min-width: 1024px) {
+            .tech-content {
+                width: 50%;
+            }
+        }
+
+        .tech-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 768px) {
+            .tech-title {
+                font-size: 3rem;
+            }
+        }
+
+        .tech-title-highlight {
+            color: #fbbf24;
+        }
+
+        .tech-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .tech-step {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .tech-step-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.1);
+            line-height: 1;
+            user-select: none;
+            transition: color 0.3s;
+        }
+
+        .tech-step:hover .tech-step-number {
+            color: rgba(251, 191, 36, 0.2);
+        }
+
+        .tech-step-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.25rem;
+            transition: color 0.3s;
+        }
+
+        .tech-step:hover .tech-step-content h3 {
+            color: #fbbf24;
+        }
+
+        .tech-step-content p {
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        .tech-visual {
+            flex: 1;
+            position: relative;
+        }
+
+        @media (min-width: 1024px) {
+            .tech-visual {
+                width: 50%;
+            }
+        }
+
+        .tech-visual-container {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: linear-gradient(to top right, #1f2937, #111827);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tech-visual-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 120%, rgba(234, 179, 8, 0.1), transparent 70%);
+        }
+
+        .tech-visual-icon {
+            position: absolute;
+            width: 8rem;
+            height: 8rem;
+            color: rgba(255, 255, 255, 0.05);
+        }
+
+        .tech-visual-sticker {
+            position: absolute;
+            bottom: 33.33%;
+            right: 25%;
+            transform: rotate(12deg);
+            background: #fbbf24;
+            width: 6rem;
+            height: 6rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid white;
+        }
+
+        .tech-visual-sticker i {
+            color: black;
+            font-size: 3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #fbbf24;
+            color: black;
+            padding: 5rem 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        @media (min-width: 768px) {
+            .footer-title {
+                font-size: 3.75rem;
+            }
+        }
+
+        .footer-description {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.8;
+        }
+
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-btn-primary {
+            background: black;
+            color: white;
+            padding: 1.25rem 2.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transform: skewX(-10deg);
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-btn-primary span {
+            display: block;
+            transform: skewX(10deg);
+        }
+
+        .footer-btn-primary:hover {
+            transform: skewX(-10deg) scale(1.05);
+        }
+
+        .footer-btn-secondary {
+            border: 2px solid black;
+            color: black;
+            padding: 1.25rem 2.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transform: skewX(-10deg);
+            transition: background-color 0.3s;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .footer-btn-secondary span {
+            display: block;
+            transform: skewX(10deg);
+        }
+
+        .footer-btn-secondary:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom {
+            margin-top: 5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            font-weight: 700;
+            opacity: 0.6;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+            }
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-links {
+                margin-top: 0;
+            }
+        }
+
+        .footer-links a {
+            color: black;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="nav-brand-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <span class="nav-brand-text">HAZTAG</span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <div class="nav-links">
+                <a href="#overview" class="nav-link">Overview</a>
+                <a href="#technology" class="nav-link">Technology</a>
+                <a href="#specs" class="nav-link">Specs</a>
+                <a href="#safety" class="nav-link">Safety</a>
+                <a href="index.html" class="nav-button"><span>Back to Portfolio</span></a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars" id="mobile-menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#overview" class="nav-link">Overview</a>
+            <a href="#technology" class="nav-link">Technology</a>
+            <a href="#specs" class="nav-link">Specs</a>
+            <a href="#safety" class="nav-link">Safety</a>
+            <a href="index.html" class="nav-button"><span>Back to Portfolio</span></a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="overview">
+        <div class="hero-bg-1"></div>
+        <div class="hero-bg-2"></div>
+        
+        <div class="hero-container">
+            <div class="hero-badge">
+                <span>Rider Safety Information System</span>
+            </div>
+            <h1 class="hero-title">
+                SPEAK WHEN <br />
+                <span class="hero-title-gradient">YOU CAN'T.</span>
+            </h1>
+            <p class="hero-description">
+                A comprehensive identification solution designed for motorcyclists. 
+                Providing instant access to critical medical data for first responders through durable QR technology.
+            </p>
+            <div class="hero-buttons">
+                <a href="#specs" class="btn-primary">
+                    <i class="fas fa-file-alt"></i>
+                    View Specifications
+                </a>
+                <a href="#interactive-demo" class="btn-secondary">
+                    Interactive Demo
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down" style="font-size: 2rem;"></i>
+        </div>
+    </header>
+
+    <!-- Interactive Sticker Demo Section -->
+    <section id="interactive-demo" class="demo-section">
+        <div class="demo-container">
+            <div class="demo-header">
+                <h2 class="demo-title">Data Architecture</h2>
+                <p class="demo-subtitle">Explore the layers of information accessible through the Haztag interface.</p>
+            </div>
+
+            <div class="demo-content">
+                <!-- The Sticker Graphic -->
+                <div class="sticker-container" id="sticker-container">
+                    <div class="sticker-glow"></div>
+                    
+                    <!-- Sticker Body -->
+                    <div class="sticker">
+                        <!-- Hazard Stripes Top -->
+                        <div class="sticker-stripe-top"></div>
+                        
+                        <!-- Logo -->
+                        <div class="sticker-logo">
+                            <i class="fas fa-exclamation-triangle sticker-logo-icon"></i>
+                            <span class="sticker-logo-text">HAZTAG</span>
+                        </div>
+
+                        <!-- QR Code Simulation -->
+                        <div class="sticker-qr">
+                            <div class="sticker-qr-inner">
+                                <div class="sticker-qr-pattern"></div>
+                                <div class="sticker-qr-corner top-left"></div>
+                                <div class="sticker-qr-corner top-right"></div>
+                                <div class="sticker-qr-corner bottom-left"></div>
+                                <div class="sticker-qr-scanline"></div>
+                            </div>
+                        </div>
+
+                        <div class="sticker-text">
+                            <p class="sticker-text-label">Emergency Medical ID</p>
+                            <p class="sticker-text-scan">SCAN FOR INFO</p>
+                        </div>
+
+                        <!-- Hazard Stripes Bottom -->
+                        <div class="sticker-stripe-bottom"></div>
+                    </div>
+                </div>
+
+                <!-- Info Tags -->
+                <div class="info-tags-container">
+                    <!-- Tag 1: Medical Profile (Top Left) -->
+                    <div class="info-tag top-left active" data-tag="0">
+                        <div class="info-tag-content right">
+                            <div class="info-tag-line"></div>
+                            <div class="info-tag-card">
+                                <div class="info-tag-icon">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                                <div class="info-tag-text">
+                                    <p class="info-tag-title">Medical Profile</p>
+                                    <p class="info-tag-data">Blood Type, Allergies, History</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tag 2: Emergency Contact (Top Right) -->
+                    <div class="info-tag top-right" data-tag="1">
+                        <div class="info-tag-content left">
+                            <div class="info-tag-line"></div>
+                            <div class="info-tag-card">
+                                <div class="info-tag-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="info-tag-text">
+                                    <p class="info-tag-title">Primary Contacts</p>
+                                    <p class="info-tag-data">ICE (In Case of Emergency) Numbers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tag 3: Personal ID (Bottom Left) -->
+                    <div class="info-tag bottom-left" data-tag="2">
+                        <div class="info-tag-content right">
+                            <div class="info-tag-line"></div>
+                            <div class="info-tag-card">
+                                <div class="info-tag-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="info-tag-text">
+                                    <p class="info-tag-title">Rider Identification</p>
+                                    <p class="info-tag-data">Name, DOB, Organ Donor Status</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tag 4: Insurance (Bottom Right) -->
+                    <div class="info-tag bottom-right" data-tag="3">
+                        <div class="info-tag-content left">
+                            <div class="info-tag-line"></div>
+                            <div class="info-tag-card">
+                                <div class="info-tag-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="info-tag-text">
+                                    <p class="info-tag-title">Legal & Insurance</p>
+                                    <p class="info-tag-data">Policy Number, Provider Info</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology & Specs Section -->
+    <section id="specs" class="specs-section">
+        <div class="specs-container">
+            <div class="specs-header">
+                <h2 class="specs-title">Technical Specifications</h2>
+                <p class="specs-subtitle">Engineered to withstand extreme riding conditions while maintaining 100% data readability.</p>
+            </div>
+
+            <div class="specs-grid">
+                <!-- Specs List -->
+                <div class="specs-list">
+                    <div class="spec-item">
+                        <div class="spec-icon">
+                            <i class="fas fa-layer-group" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <div class="spec-content">
+                            <h4>Material Composition</h4>
+                            <p class="spec-value">Industrial Grade 3M Vinyl with UV Laminate</p>
+                            <p class="spec-desc">Resistant to fading, scratching, and chemical exposure (fuel/oil).</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-icon">
+                            <i class="fas fa-qrcode" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <div class="spec-content">
+                            <h4>QR Technology</h4>
+                            <p class="spec-value">Dynamic V-Card / Encrypted URL</p>
+                            <p class="spec-desc">Redundant error correction allows scanning even if 30% damaged.</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-icon">
+                            <i class="fas fa-database" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <div class="spec-content">
+                            <h4>Data Privacy</h4>
+                            <p class="spec-value">AES-256 Encryption (Optional)</p>
+                            <p class="spec-desc">Users can lock specific medical data behind a PIN for first responders.</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-icon">
+                            <i class="fas fa-shield-alt" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <div class="spec-content">
+                            <h4>Durability Rating</h4>
+                            <p class="spec-value">IP68 Equivalent</p>
+                            <p class="spec-desc">Waterproof, dustproof, and temperature resistant from -20°C to 80°C.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual breakdown graphic -->
+                <div class="specs-visual">
+                    <div class="specs-visual-label">FIG 2.1 - CONSTRUCTION</div>
+                    <div class="specs-layers">
+                        <div class="spec-layer">
+                            <div class="spec-layer-bar spec-layer-1"></div>
+                            <span class="spec-layer-label">UV Protective Layer</span>
+                        </div>
+                        <div class="spec-layer">
+                            <div class="spec-layer-bar spec-layer-2">PRINTED DATA LAYER</div>
+                            <span class="spec-layer-label">High-Vis Ink</span>
+                        </div>
+                        <div class="spec-layer">
+                            <div class="spec-layer-bar spec-layer-3"></div>
+                            <span class="spec-layer-label">Vinyl Base</span>
+                        </div>
+                        <div class="spec-layer">
+                            <div class="spec-layer-bar spec-layer-4"></div>
+                            <span class="spec-layer-label">3M Adhesive</span>
+                        </div>
+                    </div>
+                    <p class="specs-visual-quote">
+                        "Multi-layer construction ensures longevity on helmet surfaces."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works / Implementation -->
+    <section id="technology" class="tech-section">
+        <div class="tech-container">
+            <div class="tech-grid">
+                <div class="tech-content">
+                    <h2 class="tech-title">
+                        System <br />
+                        <span class="tech-title-highlight">Implementation.</span>
+                    </h2>
+                    <div class="tech-steps">
+                        <div class="tech-step">
+                            <div class="tech-step-number">01</div>
+                            <div class="tech-step-content">
+                                <h3>Activation</h3>
+                                <p>Each Haztag is registered to a unique rider profile in our secure database.</p>
+                            </div>
+                        </div>
+                        <div class="tech-step">
+                            <div class="tech-step-number">02</div>
+                            <div class="tech-step-content">
+                                <h3>Data Population</h3>
+                                <p>Riders input critical medical and contact data via the secure portal.</p>
+                            </div>
+                        </div>
+                        <div class="tech-step">
+                            <div class="tech-step-number">03</div>
+                            <div class="tech-step-content">
+                                <h3>Deployment</h3>
+                                <p>Stickers are applied to the left side of the helmet (standard EMS protocol).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-visual">
+                    <div class="tech-visual-container">
+                        <div class="tech-visual-glow"></div>
+                        <i class="fas fa-shield-alt tech-visual-icon"></i>
+                        <!-- Floating Sticker on 'Helmet' -->
+                        <div class="tech-visual-sticker">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Footer -->
+    <footer>
+        <div class="footer-container">
+            <h2 class="footer-title">Partner With Haztag</h2>
+            <p class="footer-description">
+                Interested in implementing Haztag for your riding club, safety organization, or distribution network?
+            </p>
+            <div class="footer-buttons">
+                <button class="footer-btn-primary">
+                    <span>Request Information</span>
+                </button>
+                <button class="footer-btn-secondary">
+                    <span>Download Brochure</span>
+                </button>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Haztag Safety Systems. Patent Pending.</p>
+                <div class="footer-links">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                    <a href="mailto:revanthdrampal@gmail.com">Email Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let isScrolled = false;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50 && !isScrolled) {
+                navbar.classList.add('scrolled');
+                isScrolled = true;
+            } else if (window.scrollY <= 50 && isScrolled) {
+                navbar.classList.remove('scrolled');
+                isScrolled = false;
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-times');
+            } else {
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('.nav-link');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Info tag hover interactions
+        const infoTags = document.querySelectorAll('.info-tag');
+        let activeTag = null;
+
+        infoTags.forEach(tag => {
+            tag.addEventListener('mouseenter', () => {
+                if (activeTag !== null) {
+                    document.querySelector(`.info-tag[data-tag="${activeTag}"]`).classList.remove('active');
+                }
+                activeTag = tag.dataset.tag;
+                tag.classList.add('active');
+            });
+
+            tag.addEventListener('mouseleave', () => {
+                tag.classList.remove('active');
+                activeTag = null;
+                // Reset to first tag
+                document.querySelector('.info-tag[data-tag="0"]').classList.add('active');
+            });
+        });
+
+        // Sticker container hover effect
+        const stickerContainer = document.getElementById('sticker-container');
+        stickerContainer.addEventListener('mouseenter', () => {
+            // All tags become active on sticker hover
+            infoTags.forEach(tag => tag.classList.add('active'));
+        });
+
+        stickerContainer.addEventListener('mouseleave', () => {
+            // Reset to default state
+            infoTags.forEach(tag => tag.classList.remove('active'));
+            document.querySelector('.info-tag[data-tag="0"]').classList.add('active');
+        });
+    </script>
+</body>
+</html>
