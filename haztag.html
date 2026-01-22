@@ -33,6 +33,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0a0a0a;
@@ -51,7 +55,7 @@
         nav {
             position: fixed;
             width: 100%;
-            z-index: 50;
+            z-index: 100;
             transition: all 0.3s;
             padding: 1.5rem 0;
             background: transparent;
@@ -198,39 +202,30 @@
             text-align: center;
         }
 
-        /* Hero Section */
-        header {
+        /* SECTION 1 - HERO (Awareness) */
+        .hero-section {
             position: relative;
-            padding-top: 8rem;
-            padding-bottom: 5rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
+            padding: 2rem 0;
+            /* Ensure hero content appears above background image sequence */
+            z-index: 10;
         }
 
-        @media (min-width: 1024px) {
-            header {
-                padding-top: 12rem;
-                padding-bottom: 8rem;
-            }
-        }
-
-        .hero-bg-1 {
+        .hero-bg-gradient {
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to left, rgba(251, 191, 36, 0.05), transparent);
-            pointer-events: none;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+            will-change: transform;
+            animation: gradientShift 20s ease-in-out infinite;
         }
 
-        .hero-bg-2 {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(to top, #0a0a0a, transparent);
-            pointer-events: none;
+        @keyframes gradientShift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-5%, -5%) scale(1.1); }
         }
 
         .hero-container {
@@ -238,19 +233,29 @@
             margin: 0 auto;
             padding: 0 1.5rem;
             position: relative;
-            z-index: 10;
+            z-index: 15;
+            /* Above background image sequence (z-index: 1) */
             text-align: center;
         }
 
         .hero-badge {
             display: inline-block;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             padding: 0.25rem 1rem;
             border: 1px solid rgba(251, 191, 36, 0.3);
             border-radius: 9999px;
             background: rgba(251, 191, 36, 0.1);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
+            opacity: 0;
+            transform: translateY(20px);
+            will-change: transform, opacity;
+        }
+
+        .hero-badge.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .hero-badge span {
@@ -281,14 +286,21 @@
             }
         }
 
-        .hero-title br {
-            display: none;
+        .hero-title-line {
+            display: block;
+            opacity: 0;
+            transform: translateY(30px);
+            will-change: transform, opacity;
         }
 
-        @media (min-width: 768px) {
-            .hero-title br {
-                display: block;
-            }
+        .hero-title-line.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+        }
+
+        .hero-title-line-2 {
+            transition-delay: 0.4s !important;
         }
 
         .hero-title-gradient {
@@ -298,12 +310,37 @@
             background-clip: text;
         }
 
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            will-change: transform, opacity;
+        }
+
+        @media (min-width: 768px) {
+            .hero-subtitle {
+                font-size: 1.75rem;
+            }
+        }
+
+        .hero-subtitle.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out 0.6s, transform 0.8s ease-out 0.6s;
+        }
+
         .hero-description {
             color: #9ca3af;
             font-size: 1.125rem;
             max-width: 42rem;
             margin: 0 auto 2.5rem;
             line-height: 1.75;
+            opacity: 0;
+            transform: translateY(20px);
+            will-change: transform, opacity;
         }
 
         @media (min-width: 768px) {
@@ -312,18 +349,33 @@
             }
         }
 
+        .hero-description.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out 0.8s, transform 0.8s ease-out 0.8s;
+        }
+
         .hero-buttons {
             display: flex;
             flex-direction: column;
             gap: 1rem;
             justify-content: center;
             align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            will-change: transform, opacity;
         }
 
         @media (min-width: 768px) {
             .hero-buttons {
                 flex-direction: row;
             }
+        }
+
+        .hero-buttons.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out 1s, transform 0.8s ease-out 1s;
         }
 
         .btn-primary {
@@ -339,11 +391,12 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .btn-primary:hover {
             background: #e5e7eb;
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
@@ -361,348 +414,164 @@
         .btn-secondary:hover {
             border-color: rgba(251, 191, 36, 0.5);
             background: rgba(251, 191, 36, 0.1);
+            transform: translateY(-2px);
         }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            opacity: 0.5;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            50% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-        }
-
-        /* Interactive Demo Section */
-        .demo-section {
-            padding: 6rem 0;
-            background: #0f0f0f;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .demo-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .demo-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .demo-title {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        @media (min-width: 768px) {
-            .demo-title {
-                font-size: 3rem;
-            }
-        }
-
-        .demo-subtitle {
-            color: #9ca3af;
-        }
-
-        .demo-content {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2.5rem 0;
-        }
-
-        @media (min-width: 768px) {
-            .demo-content {
-                padding: 5rem 0;
-            }
-        }
-
-        .sticker-container {
-            position: relative;
-            z-index: 20;
-            cursor: pointer;
-            transition: transform 0.5s;
-        }
-
-        .sticker-container:hover {
-            transform: scale(1.02);
-        }
-
-        .sticker-glow {
-            position: absolute;
-            inset: 0;
-            background: rgba(251, 191, 36, 0.2);
-            filter: blur(60px);
-            border-radius: 50%;
-            opacity: 0.5;
-            transition: opacity 0.3s;
-        }
-
-        .sticker-container:hover .sticker-glow {
-            opacity: 0.7;
-        }
-
-        .sticker {
-            width: 16rem;
-            height: 16rem;
-            background: #1a1a1a;
-            border-radius: 1.5rem;
-            border: 4px solid white;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        @media (min-width: 768px) {
-            .sticker {
-                width: 20rem;
-                height: 20rem;
-            }
-        }
-
-        .sticker-stripe-top {
-            position: absolute;
+        /* BACKGROUND IMAGE SEQUENCE - Spans Hero + Sticker Story Sections */
+        .image-sequence-background {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 1rem;
-            background: repeating-linear-gradient(45deg, #fbbf24, #fbbf24 10px, #000 10px, #000 20px);
-        }
-
-        .sticker-logo {
+            height: 100vh;
+            z-index: 1;
+            /* Behind hero content and other sections */
+            pointer-events: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            margin-top: 0.5rem;
+            justify-content: center;
+            /* Dark overlay for better text readability */
+            background: radial-gradient(circle at center, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.7) 100%);
         }
 
-        .sticker-logo-icon {
-            color: #fbbf24;
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-
-        .sticker-logo-text {
-            font-size: 1.5rem;
-            font-weight: 900;
-            font-style: italic;
-            letter-spacing: -0.05em;
-            color: white;
-        }
-
-        .sticker-qr {
-            width: 8rem;
-            height: 8rem;
-            background: white;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .sticker-qr-inner {
+        /* Single img element that updates frames based on scroll */
+        .image-sequence-frame {
             width: 100%;
             height: 100%;
-            background: black;
+            max-width: 100vw;
+            max-height: 100vh;
+            object-fit: cover;
+            /* Cover ensures image fills background */
+            object-position: center;
+            /* Smooth image transitions */
+            image-rendering: high-quality;
+            -webkit-image-rendering: high-quality;
+            /* Prevent flicker during src changes */
+            opacity: 0.4;
+            /* Subtle opacity so text remains readable */
+            transition: opacity 0.1s ease-out;
+            will-change: contents;
+        }
+
+        /* SECTION 2 - STICKER FOCUS (Core Story) - SCROLL-DRIVEN IMAGE SEQUENCE */
+        .sticker-story-section {
             position: relative;
+            /* Tall scroll container: 400vh ensures all 192 frames complete before next section */
+            min-height: 400vh;
+            height: 400vh;
+            padding: 0;
+            margin: 0;
             overflow: hidden;
+            background: transparent;
+            /* Transparent so background image shows through */
+            display: block;
+            /* Content appears above background image */
+            z-index: 5;
         }
 
-        .sticker-qr-pattern {
-            position: absolute;
-            inset: 0;
-            opacity: 0.8;
-            background-image: radial-gradient(white 2px, transparent 2px);
-            background-size: 8px 8px;
-        }
-
-        .sticker-qr-corner {
-            position: absolute;
-            width: 1.5rem;
-            height: 1.5rem;
-            border: 4px solid white;
-        }
-
-        .sticker-qr-corner.top-left {
-            top: 0.25rem;
-            left: 0.25rem;
-        }
-
-        .sticker-qr-corner.top-right {
-            top: 0.25rem;
-            right: 0.25rem;
-        }
-
-        .sticker-qr-corner.bottom-left {
-            bottom: 0.25rem;
-            left: 0.25rem;
-        }
-
-        .sticker-qr-scanline {
-            position: absolute;
+        .sticker-sticky-container {
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: #ef4444;
-            box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
-            animation: scan 2s ease-in-out infinite;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            /* Transparent background so image sequence shows through */
+            background: transparent;
         }
 
-        @keyframes scan {
-            0% {
-                top: 0%;
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                top: 100%;
-                opacity: 0;
-            }
-        }
-
-        .sticker-text {
-            text-align: center;
-        }
-
-        .sticker-text-label {
-            font-size: 0.625rem;
-            font-weight: 700;
-            color: #9ca3af;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .sticker-text-scan {
-            font-size: 0.625rem;
-            color: #fbbf24;
-            margin-top: 0.25rem;
-        }
-
-        .sticker-stripe-bottom {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1rem;
-            background: repeating-linear-gradient(45deg, #fbbf24, #fbbf24 10px, #000 10px, #000 20px);
-        }
-
-        /* Info Tags */
+        /* Info Tags with Scroll Reveal */
         .info-tags-container {
             position: absolute;
             inset: 0;
             pointer-events: none;
+            z-index: 30;
         }
 
         .info-tag {
             position: absolute;
             pointer-events: auto;
-            transition: all 0.5s;
-            opacity: 0.3;
-            transform: scale(0.95);
-            z-index: 10;
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            will-change: transform, opacity;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
-        .info-tag.active {
+        .info-tag.reveal-visible {
             opacity: 1;
-            transform: scale(1);
-            z-index: 30;
+            transform: scale(1) translateY(0);
         }
 
         .info-tag.top-left {
-            top: 0;
-            left: 1rem;
+            top: 5%;
+            left: 5%;
         }
 
         @media (min-width: 768px) {
             .info-tag.top-left {
-                top: 2.5rem;
-                left: 5rem;
+                top: 10%;
+                left: 10%;
             }
         }
 
         @media (min-width: 1024px) {
             .info-tag.top-left {
-                left: 25%;
+                left: 20%;
             }
         }
 
         .info-tag.top-right {
-            top: 0;
-            right: 1rem;
+            top: 5%;
+            right: 5%;
         }
 
         @media (min-width: 768px) {
             .info-tag.top-right {
-                top: 2.5rem;
-                right: 5rem;
+                top: 10%;
+                right: 10%;
             }
         }
 
         @media (min-width: 1024px) {
             .info-tag.top-right {
-                right: 25%;
+                right: 20%;
             }
         }
 
         .info-tag.bottom-left {
-            bottom: 0;
-            left: 1rem;
+            bottom: 5%;
+            left: 5%;
         }
 
         @media (min-width: 768px) {
             .info-tag.bottom-left {
-                bottom: 2.5rem;
-                left: 5rem;
+                bottom: 10%;
+                left: 10%;
             }
         }
 
         @media (min-width: 1024px) {
             .info-tag.bottom-left {
-                left: 25%;
+                left: 20%;
             }
         }
 
         .info-tag.bottom-right {
-            bottom: 0;
-            right: 1rem;
+            bottom: 5%;
+            right: 5%;
         }
 
         @media (min-width: 768px) {
             .info-tag.bottom-right {
-                bottom: 2.5rem;
-                right: 5rem;
+                bottom: 10%;
+                right: 10%;
             }
         }
 
         @media (min-width: 1024px) {
             .info-tag.bottom-right {
-                right: 25%;
+                right: 20%;
             }
         }
 
@@ -720,12 +589,13 @@
         }
 
         .info-tag-line {
-            height: 4rem;
+            height: 0;
             width: 2px;
             background: linear-gradient(to bottom, #fbbf24, transparent);
             margin-bottom: 0.5rem;
-            transition: all 0.5s;
+            transition: height 0.8s ease-out;
             display: none;
+            will-change: height;
         }
 
         @media (min-width: 768px) {
@@ -734,9 +604,8 @@
             }
         }
 
-        .info-tag.active .info-tag-line {
+        .info-tag.reveal-visible .info-tag-line {
             height: 6rem;
-            opacity: 1;
         }
 
         .info-tag-card {
@@ -751,11 +620,12 @@
             align-items: center;
             gap: 1rem;
             min-width: 240px;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, transform 0.3s;
         }
 
         .info-tag-card:hover {
             border-color: rgba(251, 191, 36, 0.5);
+            transform: translateY(-2px);
         }
 
         .info-tag-icon {
@@ -789,10 +659,23 @@
             font-size: 1.125rem;
         }
 
-        /* Specs Section */
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: #fbbf24;
+            z-index: 200;
+            transition: width 0.1s linear;
+        }
+
+        /* SECTION 3 - TECHNICAL TRUST */
         .specs-section {
-            padding: 6rem 0;
+            padding: 8rem 0;
             background: #0a0a0a;
+            position: relative;
         }
 
         .specs-container {
@@ -803,6 +686,7 @@
 
         .specs-header {
             margin-bottom: 4rem;
+            text-align: center;
         }
 
         .specs-title {
@@ -810,6 +694,9 @@
             font-weight: 900;
             margin-bottom: 1rem;
             text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(30px);
+            will-change: transform, opacity;
         }
 
         @media (min-width: 768px) {
@@ -818,9 +705,25 @@
             }
         }
 
+        .specs-title.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
         .specs-subtitle {
             color: #9ca3af;
             max-width: 42rem;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            will-change: transform, opacity;
+        }
+
+        .specs-subtitle.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
         }
 
         .specs-grid {
@@ -847,11 +750,26 @@
             padding: 1rem;
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 0.75rem;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+            will-change: transform, opacity;
         }
+
+        .spec-item.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .spec-item:nth-child(1).reveal-visible { transition-delay: 0.1s; }
+        .spec-item:nth-child(2).reveal-visible { transition-delay: 0.2s; }
+        .spec-item:nth-child(3).reveal-visible { transition-delay: 0.3s; }
+        .spec-item:nth-child(4).reveal-visible { transition-delay: 0.4s; }
 
         .spec-item:hover {
             background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
         }
 
         .spec-icon {
@@ -892,6 +810,15 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            opacity: 0;
+            transform: translateY(30px);
+            will-change: transform, opacity;
+        }
+
+        .specs-visual.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
         }
 
         .specs-visual-label {
@@ -913,7 +840,21 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            opacity: 0;
+            transform: translateX(-20px);
+            will-change: transform, opacity;
         }
+
+        .specs-visual.reveal-visible .spec-layer {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .specs-visual.reveal-visible .spec-layer:nth-child(1) { transition-delay: 0.5s; }
+        .specs-visual.reveal-visible .spec-layer:nth-child(2) { transition-delay: 0.6s; }
+        .specs-visual.reveal-visible .spec-layer:nth-child(3) { transition-delay: 0.7s; }
+        .specs-visual.reveal-visible .spec-layer:nth-child(4) { transition-delay: 0.8s; }
 
         .spec-layer-bar {
             flex: 1;
@@ -970,12 +911,13 @@
             text-align: center;
         }
 
-        /* Technology Section */
+        /* SECTION 4 - IMPLEMENTATION FLOW */
         .tech-section {
-            padding: 6rem 0;
+            padding: 8rem 0;
             background: #111;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
         }
 
         .tech-container {
@@ -1013,12 +955,21 @@
             margin-bottom: 2rem;
             text-transform: uppercase;
             line-height: 1.2;
+            opacity: 0;
+            transform: translateY(30px);
+            will-change: transform, opacity;
         }
 
         @media (min-width: 768px) {
             .tech-title {
                 font-size: 3rem;
             }
+        }
+
+        .tech-title.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .tech-title-highlight {
@@ -1035,7 +986,20 @@
             display: flex;
             gap: 1.5rem;
             align-items: flex-start;
+            opacity: 0;
+            transform: translateX(-30px);
+            will-change: transform, opacity;
         }
+
+        .tech-step.reveal-visible {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .tech-step:nth-child(1).reveal-visible { transition-delay: 0.1s; }
+        .tech-step:nth-child(2).reveal-visible { transition-delay: 0.2s; }
+        .tech-step:nth-child(3).reveal-visible { transition-delay: 0.3s; }
 
         .tech-step-number {
             font-size: 3rem;
@@ -1088,6 +1052,21 @@
             justify-content: center;
             padding: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: scale(0.9);
+            will-change: transform, opacity;
+        }
+
+        .tech-visual-container.reveal-visible {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.02) translateY(-10px); }
         }
 
         .tech-visual-glow {
@@ -1117,6 +1096,16 @@
             justify-content: center;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
             border: 2px solid white;
+            opacity: 0;
+            transform: rotate(12deg) scale(0);
+            will-change: transform, opacity;
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+        }
+
+        .tech-visual-container.reveal-visible .tech-visual-sticker {
+            opacity: 1;
+            transform: rotate(12deg) scale(1);
+            transition-delay: 0.5s;
         }
 
         .tech-visual-sticker i {
@@ -1124,11 +1113,13 @@
             font-size: 3rem;
         }
 
-        /* Footer */
+        /* SECTION 5 - FINAL CTA */
         footer {
             background: #fbbf24;
             color: black;
-            padding: 5rem 0;
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
         }
 
         .footer-container {
@@ -1144,12 +1135,21 @@
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: -0.02em;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            will-change: transform, opacity;
         }
 
         @media (min-width: 768px) {
             .footer-title {
                 font-size: 3.75rem;
             }
+        }
+
+        .footer-title.reveal-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .footer-description {
@@ -1160,6 +1160,15 @@
             margin-left: auto;
             margin-right: auto;
             opacity: 0.8;
+            opacity: 0;
+            transform: translateY(20px);
+            will-change: transform, opacity;
+        }
+
+        .footer-description.reveal-visible {
+            opacity: 0.8;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
         }
 
         .footer-buttons {
@@ -1167,6 +1176,15 @@
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            will-change: transform, opacity;
+        }
+
+        .footer-buttons.reveal-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition: opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s;
         }
 
         .footer-btn-primary {
@@ -1202,7 +1220,7 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             transform: skewX(-10deg);
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
             cursor: pointer;
             background: transparent;
         }
@@ -1214,6 +1232,7 @@
 
         .footer-btn-secondary:hover {
             background: rgba(0, 0, 0, 0.1);
+            transform: skewX(-10deg) scale(1.05);
         }
 
         .footer-bottom {
@@ -1263,9 +1282,32 @@
             margin: 0 auto;
             padding: 0 1.5rem;
         }
+
+        /* Reveal Animation Base */
+        .reveal {
+            opacity: 0;
+        }
+
+        .reveal-visible {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Background Image Sequence - Visible behind Hero and Sticker Story sections -->
+    <div class="image-sequence-background">
+        <img 
+            id="image-sequence-frame" 
+            class="image-sequence-frame" 
+            src="resources/images/Haztag/ezgif-frame-001.jpg" 
+            alt="Haztag product animation sequence"
+            loading="eager"
+        />
+    </div>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
@@ -1279,9 +1321,9 @@
             <!-- Desktop Nav -->
             <div class="nav-links">
                 <a href="#overview" class="nav-link">Overview</a>
-                <a href="#technology" class="nav-link">Technology</a>
+                <a href="#story" class="nav-link">Story</a>
                 <a href="#specs" class="nav-link">Specs</a>
-                <a href="#safety" class="nav-link">Safety</a>
+                <a href="#technology" class="nav-link">Technology</a>
                 <a href="index.html" class="nav-button"><span>Back to Portfolio</span></a>
             </div>
 
@@ -1294,154 +1336,108 @@
         <!-- Mobile Nav -->
         <div class="mobile-menu" id="mobile-menu">
             <a href="#overview" class="nav-link">Overview</a>
-            <a href="#technology" class="nav-link">Technology</a>
+            <a href="#story" class="nav-link">Story</a>
             <a href="#specs" class="nav-link">Specs</a>
-            <a href="#safety" class="nav-link">Safety</a>
+            <a href="#technology" class="nav-link">Technology</a>
             <a href="index.html" class="nav-button"><span>Back to Portfolio</span></a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="overview">
-        <div class="hero-bg-1"></div>
-        <div class="hero-bg-2"></div>
+    <!-- SECTION 1 - HERO (Awareness) -->
+    <section id="overview" class="hero-section">
+        <div class="hero-bg-gradient"></div>
         
         <div class="hero-container">
-            <div class="hero-badge">
+            <div class="hero-badge reveal">
                 <span>Rider Safety Information System</span>
             </div>
             <h1 class="hero-title">
-                SPEAK WHEN <br />
-                <span class="hero-title-gradient">YOU CAN'T.</span>
+                <span class="hero-title-line reveal">SPEAK WHEN</span>
+                <span class="hero-title-line hero-title-line-2 reveal">
+                    <span class="hero-title-gradient">YOU CAN'T.</span>
+                </span>
             </h1>
-            <p class="hero-description">
+            <p class="hero-subtitle reveal">When seconds matter, your helmet speaks.</p>
+            <p class="hero-description reveal">
                 A comprehensive identification solution designed for motorcyclists. 
                 Providing instant access to critical medical data for first responders through durable QR technology.
             </p>
-            <div class="hero-buttons">
+            <div class="hero-buttons reveal">
                 <a href="#specs" class="btn-primary">
                     <i class="fas fa-file-alt"></i>
                     View Specifications
                 </a>
-                <a href="#interactive-demo" class="btn-secondary">
-                    Interactive Demo
+                <a href="#story" class="btn-secondary">
+                    Explore the Story
                 </a>
             </div>
         </div>
+    </section>
 
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down" style="font-size: 2rem;"></i>
-        </div>
-    </header>
-
-    <!-- Interactive Sticker Demo Section -->
-    <section id="interactive-demo" class="demo-section">
-        <div class="demo-container">
-            <div class="demo-header">
-                <h2 class="demo-title">Data Architecture</h2>
-                <p class="demo-subtitle">Explore the layers of information accessible through the Haztag interface.</p>
-            </div>
-
-            <div class="demo-content">
-                <!-- The Sticker Graphic -->
-                <div class="sticker-container" id="sticker-container">
-                    <div class="sticker-glow"></div>
-                    
-                    <!-- Sticker Body -->
-                    <div class="sticker">
-                        <!-- Hazard Stripes Top -->
-                        <div class="sticker-stripe-top"></div>
-                        
-                        <!-- Logo -->
-                        <div class="sticker-logo">
-                            <i class="fas fa-exclamation-triangle sticker-logo-icon"></i>
-                            <span class="sticker-logo-text">HAZTAG</span>
-                        </div>
-
-                        <!-- QR Code Simulation -->
-                        <div class="sticker-qr">
-                            <div class="sticker-qr-inner">
-                                <div class="sticker-qr-pattern"></div>
-                                <div class="sticker-qr-corner top-left"></div>
-                                <div class="sticker-qr-corner top-right"></div>
-                                <div class="sticker-qr-corner bottom-left"></div>
-                                <div class="sticker-qr-scanline"></div>
+    <!-- SECTION 2 - STICKER FOCUS (Core Story) - SCROLL-DRIVEN IMAGE SEQUENCE -->
+    <section id="story" class="sticker-story-section">
+        <div class="sticker-sticky-container">
+            <!-- Info Tags with Sequential Reveal -->
+            <div class="info-tags-container">
+                <!-- Tag 1: Medical Profile (Top Left) - Reveals First -->
+                <div class="info-tag top-left reveal" data-reveal-order="1">
+                    <div class="info-tag-content right">
+                        <div class="info-tag-line"></div>
+                        <div class="info-tag-card">
+                            <div class="info-tag-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="info-tag-text">
+                                <p class="info-tag-title">Medical Profile</p>
+                                <p class="info-tag-data">Blood Type, Allergies, History</p>
                             </div>
                         </div>
-
-                        <div class="sticker-text">
-                            <p class="sticker-text-label">Emergency Medical ID</p>
-                            <p class="sticker-text-scan">SCAN FOR INFO</p>
-                        </div>
-
-                        <!-- Hazard Stripes Bottom -->
-                        <div class="sticker-stripe-bottom"></div>
                     </div>
                 </div>
 
-                <!-- Info Tags -->
-                <div class="info-tags-container">
-                    <!-- Tag 1: Medical Profile (Top Left) -->
-                    <div class="info-tag top-left active" data-tag="0">
-                        <div class="info-tag-content right">
-                            <div class="info-tag-line"></div>
-                            <div class="info-tag-card">
-                                <div class="info-tag-icon">
-                                    <i class="fas fa-heartbeat"></i>
-                                </div>
-                                <div class="info-tag-text">
-                                    <p class="info-tag-title">Medical Profile</p>
-                                    <p class="info-tag-data">Blood Type, Allergies, History</p>
-                                </div>
+                <!-- Tag 2: Emergency Contact (Top Right) - Reveals Second -->
+                <div class="info-tag top-right reveal" data-reveal-order="2">
+                    <div class="info-tag-content left">
+                        <div class="info-tag-line"></div>
+                        <div class="info-tag-card">
+                            <div class="info-tag-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-tag-text">
+                                <p class="info-tag-title">Primary Contacts</p>
+                                <p class="info-tag-data">ICE (In Case of Emergency) Numbers</p>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Tag 2: Emergency Contact (Top Right) -->
-                    <div class="info-tag top-right" data-tag="1">
-                        <div class="info-tag-content left">
-                            <div class="info-tag-line"></div>
-                            <div class="info-tag-card">
-                                <div class="info-tag-icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div class="info-tag-text">
-                                    <p class="info-tag-title">Primary Contacts</p>
-                                    <p class="info-tag-data">ICE (In Case of Emergency) Numbers</p>
-                                </div>
+                <!-- Tag 3: Personal ID (Bottom Left) - Reveals Third -->
+                <div class="info-tag bottom-left reveal" data-reveal-order="3">
+                    <div class="info-tag-content right">
+                        <div class="info-tag-line"></div>
+                        <div class="info-tag-card">
+                            <div class="info-tag-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="info-tag-text">
+                                <p class="info-tag-title">Rider Identification</p>
+                                <p class="info-tag-data">Name, DOB, Organ Donor Status</p>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Tag 3: Personal ID (Bottom Left) -->
-                    <div class="info-tag bottom-left" data-tag="2">
-                        <div class="info-tag-content right">
-                            <div class="info-tag-line"></div>
-                            <div class="info-tag-card">
-                                <div class="info-tag-icon">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="info-tag-text">
-                                    <p class="info-tag-title">Rider Identification</p>
-                                    <p class="info-tag-data">Name, DOB, Organ Donor Status</p>
-                                </div>
+                <!-- Tag 4: Insurance (Bottom Right) - Reveals Fourth -->
+                <div class="info-tag bottom-right reveal" data-reveal-order="4">
+                    <div class="info-tag-content left">
+                        <div class="info-tag-line"></div>
+                        <div class="info-tag-card">
+                            <div class="info-tag-icon">
+                                <i class="fas fa-file-alt"></i>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Tag 4: Insurance (Bottom Right) -->
-                    <div class="info-tag bottom-right" data-tag="3">
-                        <div class="info-tag-content left">
-                            <div class="info-tag-line"></div>
-                            <div class="info-tag-card">
-                                <div class="info-tag-icon">
-                                    <i class="fas fa-file-alt"></i>
-                                </div>
-                                <div class="info-tag-text">
-                                    <p class="info-tag-title">Legal & Insurance</p>
-                                    <p class="info-tag-data">Policy Number, Provider Info</p>
-                                </div>
+                            <div class="info-tag-text">
+                                <p class="info-tag-title">Legal & Insurance</p>
+                                <p class="info-tag-data">Policy Number, Provider Info</p>
                             </div>
                         </div>
                     </div>
@@ -1450,18 +1446,18 @@
         </div>
     </section>
 
-    <!-- Technology & Specs Section -->
+    <!-- SECTION 3 - TECHNICAL TRUST -->
     <section id="specs" class="specs-section">
         <div class="specs-container">
             <div class="specs-header">
-                <h2 class="specs-title">Technical Specifications</h2>
-                <p class="specs-subtitle">Engineered to withstand extreme riding conditions while maintaining 100% data readability.</p>
+                <h2 class="specs-title reveal">Technical Specifications</h2>
+                <p class="specs-subtitle reveal">Engineered to withstand extreme riding conditions while maintaining 100% data readability.</p>
             </div>
 
             <div class="specs-grid">
                 <!-- Specs List -->
                 <div class="specs-list">
-                    <div class="spec-item">
+                    <div class="spec-item reveal">
                         <div class="spec-icon">
                             <i class="fas fa-layer-group" style="font-size: 1.5rem;"></i>
                         </div>
@@ -1471,7 +1467,7 @@
                             <p class="spec-desc">Resistant to fading, scratching, and chemical exposure (fuel/oil).</p>
                         </div>
                     </div>
-                    <div class="spec-item">
+                    <div class="spec-item reveal">
                         <div class="spec-icon">
                             <i class="fas fa-qrcode" style="font-size: 1.5rem;"></i>
                         </div>
@@ -1481,7 +1477,7 @@
                             <p class="spec-desc">Redundant error correction allows scanning even if 30% damaged.</p>
                         </div>
                     </div>
-                    <div class="spec-item">
+                    <div class="spec-item reveal">
                         <div class="spec-icon">
                             <i class="fas fa-database" style="font-size: 1.5rem;"></i>
                         </div>
@@ -1491,7 +1487,7 @@
                             <p class="spec-desc">Users can lock specific medical data behind a PIN for first responders.</p>
                         </div>
                     </div>
-                    <div class="spec-item">
+                    <div class="spec-item reveal">
                         <div class="spec-icon">
                             <i class="fas fa-shield-alt" style="font-size: 1.5rem;"></i>
                         </div>
@@ -1504,7 +1500,7 @@
                 </div>
 
                 <!-- Visual breakdown graphic -->
-                <div class="specs-visual">
+                <div class="specs-visual reveal">
                     <div class="specs-visual-label">FIG 2.1 - CONSTRUCTION</div>
                     <div class="specs-layers">
                         <div class="spec-layer">
@@ -1532,31 +1528,31 @@
         </div>
     </section>
 
-    <!-- How it Works / Implementation -->
+    <!-- SECTION 4 - IMPLEMENTATION FLOW -->
     <section id="technology" class="tech-section">
         <div class="tech-container">
             <div class="tech-grid">
                 <div class="tech-content">
-                    <h2 class="tech-title">
+                    <h2 class="tech-title reveal">
                         System <br />
                         <span class="tech-title-highlight">Implementation.</span>
                     </h2>
                     <div class="tech-steps">
-                        <div class="tech-step">
+                        <div class="tech-step reveal">
                             <div class="tech-step-number">01</div>
                             <div class="tech-step-content">
                                 <h3>Activation</h3>
                                 <p>Each Haztag is registered to a unique rider profile in our secure database.</p>
                             </div>
                         </div>
-                        <div class="tech-step">
+                        <div class="tech-step reveal">
                             <div class="tech-step-number">02</div>
                             <div class="tech-step-content">
                                 <h3>Data Population</h3>
                                 <p>Riders input critical medical and contact data via the secure portal.</p>
                             </div>
                         </div>
-                        <div class="tech-step">
+                        <div class="tech-step reveal">
                             <div class="tech-step-number">03</div>
                             <div class="tech-step-content">
                                 <h3>Deployment</h3>
@@ -1566,7 +1562,7 @@
                     </div>
                 </div>
                 <div class="tech-visual">
-                    <div class="tech-visual-container">
+                    <div class="tech-visual-container reveal">
                         <div class="tech-visual-glow"></div>
                         <i class="fas fa-shield-alt tech-visual-icon"></i>
                         <!-- Floating Sticker on 'Helmet' -->
@@ -1579,14 +1575,14 @@
         </div>
     </section>
 
-    <!-- CTA Footer -->
+    <!-- SECTION 5 - FINAL CTA -->
     <footer>
         <div class="footer-container">
-            <h2 class="footer-title">Partner With Haztag</h2>
-            <p class="footer-description">
+            <h2 class="footer-title reveal">Partner With Haztag</h2>
+            <p class="footer-description reveal">
                 Interested in implementing Haztag for your riding club, safety organization, or distribution network?
             </p>
-            <div class="footer-buttons">
+            <div class="footer-buttons reveal">
                 <button class="footer-btn-primary">
                     <span>Request Information</span>
                 </button>
@@ -1607,6 +1603,14 @@
     </footer>
 
     <script>
+        // Scroll Progress Indicator
+        const scrollProgress = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         let isScrolled = false;
@@ -1661,38 +1665,215 @@
             });
         });
 
-        // Info tag hover interactions
-        const infoTags = document.querySelectorAll('.info-tag');
-        let activeTag = null;
+        // IntersectionObserver for Scroll Reveals
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        infoTags.forEach(tag => {
-            tag.addEventListener('mouseenter', () => {
-                if (activeTag !== null) {
-                    document.querySelector(`.info-tag[data-tag="${activeTag}"]`).classList.remove('active');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                    // For sticker story section, reveal tags sequentially based on scroll progress
+                    if (entry.target.classList.contains('sticker-story-section')) {
+                        observeStickerStoryReveals();
+                    }
                 }
-                activeTag = tag.dataset.tag;
-                tag.classList.add('active');
             });
+        }, observerOptions);
 
-            tag.addEventListener('mouseleave', () => {
-                tag.classList.remove('active');
-                activeTag = null;
-                // Reset to first tag
-                document.querySelector('.info-tag[data-tag="0"]').classList.add('active');
-            });
+        // Observe all reveal elements
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
         });
 
-        // Sticker container hover effect
-        const stickerContainer = document.getElementById('sticker-container');
-        stickerContainer.addEventListener('mouseenter', () => {
-            // All tags become active on sticker hover
-            infoTags.forEach(tag => tag.classList.add('active'));
-        });
+        /* ====================================================================
+           SCROLL-DRIVEN IMAGE SEQUENCE ANIMATION
+           ====================================================================
+           This creates an Apple-style cinematic scroll experience where
+           scrolling through the section animates through 192 image frames.
+           
+           Performance optimizations:
+           - Preloads all images to prevent loading delays
+           - Uses requestAnimationFrame to sync with browser paint
+           - Throttles scroll calculations to prevent jank
+           - Only updates when section is in viewport
+           ==================================================================== */
+        
+        let imageSequenceInitialized = false;
+        let imageSequenceFrame = null;
+        let heroSection = null;
+        let stickerStorySection = null;
+        let preloadedImages = [];
+        const TOTAL_FRAMES = 192; // ezgif-frame-001.jpg to ezgif-frame-192.jpg
+        let rafId = null;
+        let lastFrameIndex = -1;
 
-        stickerContainer.addEventListener('mouseleave', () => {
-            // Reset to default state
-            infoTags.forEach(tag => tag.classList.remove('active'));
-            document.querySelector('.info-tag[data-tag="0"]').classList.add('active');
+        function initImageSequence() {
+            // Prevent multiple initializations
+            if (imageSequenceInitialized) return;
+            imageSequenceInitialized = true;
+
+            imageSequenceFrame = document.getElementById('image-sequence-frame');
+            heroSection = document.querySelector('.hero-section');
+            stickerStorySection = document.querySelector('.sticker-story-section');
+            
+            if (!imageSequenceFrame || !heroSection || !stickerStorySection) return;
+
+            // Preload all 192 images for smooth playback
+            // This ensures no loading delays during scroll animation
+            preloadImageSequence();
+
+            // Start scroll-driven animation loop immediately
+            startImageSequenceAnimation();
+        }
+
+        function preloadImageSequence() {
+            // Preload images in batches to avoid overwhelming the browser
+            // GitHub Pages can handle this efficiently with proper caching
+            const batchSize = 10;
+            let currentBatch = 0;
+
+            function loadBatch() {
+                const start = currentBatch * batchSize + 1;
+                const end = Math.min(start + batchSize - 1, TOTAL_FRAMES);
+
+                for (let i = start; i <= end; i++) {
+                    const frameNum = String(i).padStart(3, '0');
+                    const img = new Image();
+                    img.src = `resources/images/Haztag/ezgif-frame-${frameNum}.jpg`;
+                    preloadedImages.push(img);
+                }
+
+                currentBatch++;
+                
+                // Load next batch after a short delay to prevent blocking
+                if (currentBatch * batchSize < TOTAL_FRAMES) {
+                    setTimeout(loadBatch, 50);
+                }
+            }
+
+            loadBatch();
+        }
+
+        function startImageSequenceAnimation() {
+            // Use requestAnimationFrame for smooth, synchronized updates
+            // This ensures frame changes happen at optimal times (60fps target)
+            function updateFrame() {
+                if (!heroSection || !stickerStorySection || !imageSequenceFrame) {
+                    rafId = requestAnimationFrame(updateFrame);
+                    return;
+                }
+
+                // Calculate scroll progress across both Hero and Sticker Story sections (0 to 1)
+                const progress = calculateImageSequenceProgress();
+                
+                // Map progress to frame index (0 to 191) to get frames 1-192
+                // When progress = 0: frameIndex = 0 → frame 001 (at hero start)
+                // When progress = 1: frameIndex = 191 → frame 192 (at sticker story end)
+                let frameIndex = Math.floor(progress * (TOTAL_FRAMES - 1));
+                
+                // Ensure frame 192 is reached when progress = 1 (or very close to 1)
+                // This guarantees the animation completes before next section
+                if (progress >= 0.995) {
+                    frameIndex = TOTAL_FRAMES - 1; // Frame 192 (index 191)
+                }
+                
+                // Clamp frame index to valid range (0-191)
+                frameIndex = Math.max(0, Math.min(TOTAL_FRAMES - 1, frameIndex));
+                
+                // Only update if frame changed (prevents unnecessary DOM updates)
+                if (frameIndex !== lastFrameIndex && frameIndex >= 0 && frameIndex < TOTAL_FRAMES) {
+                    const frameNum = String(frameIndex + 1).padStart(3, '0');
+                    imageSequenceFrame.src = `resources/images/Haztag/ezgif-frame-${frameNum}.jpg`;
+                    lastFrameIndex = frameIndex;
+                }
+
+                rafId = requestAnimationFrame(updateFrame);
+            }
+
+            updateFrame();
+        }
+
+        function calculateImageSequenceProgress() {
+            if (!heroSection || !stickerStorySection) return 0;
+
+            const windowHeight = window.innerHeight;
+            const heroRect = heroSection.getBoundingClientRect();
+            const stickerRect = stickerStorySection.getBoundingClientRect();
+            
+            // Calculate total scrollable distance: from hero start to sticker story end
+            const heroTop = heroRect.top + window.scrollY;
+            const stickerBottom = stickerRect.bottom + window.scrollY;
+            const totalScrollDistance = stickerBottom - heroTop;
+            
+            // Current scroll position relative to hero start
+            const currentScroll = window.scrollY;
+            const scrollFromHeroStart = currentScroll - heroTop;
+            
+            // Progress: 0 at hero start, 1 at sticker story end
+            let progress = scrollFromHeroStart / totalScrollDistance;
+            
+            // Clamp between 0 and 1
+            progress = Math.max(0, Math.min(1, progress));
+            
+            return progress;
+        }
+
+        // Special handling for sticker story section - sequential tag reveals
+        function observeStickerStoryReveals() {
+            const stickerSection = document.querySelector('.sticker-story-section');
+            const infoTags = document.querySelectorAll('.info-tag');
+            
+            // Observe sticker section scroll progress for info tags
+            const scrollHandler = () => {
+                if (isElementInViewport(stickerSection)) {
+                    const progress = calculateScrollProgress(stickerSection);
+                    infoTags.forEach(tag => {
+                        const order = parseInt(tag.dataset.revealOrder);
+                        const threshold = (order - 1) * 0.25;
+                        if (progress >= threshold) {
+                            tag.classList.add('reveal-visible');
+                        }
+                    });
+                }
+            };
+
+            window.addEventListener('scroll', scrollHandler, { passive: true });
+        }
+
+        function calculateScrollProgress(element) {
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const elementHeight = rect.height;
+            const elementTop = rect.top;
+            
+            // Calculate how far through the element we've scrolled
+            const scrolled = windowHeight - elementTop;
+            const progress = Math.max(0, Math.min(1, scrolled / (windowHeight + elementHeight)));
+            return progress;
+        }
+
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top < window.innerHeight &&
+                rect.bottom > 0
+            );
+        }
+
+        // Initialize hero reveals and image sequence on load
+        window.addEventListener('load', () => {
+            const heroElements = document.querySelectorAll('.hero-section .reveal');
+            heroElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('reveal-visible');
+                }, index * 200);
+            });
+
+            // Initialize image sequence immediately - it runs in background from hero section
+            initImageSequence();
         });
     </script>
 </body>
