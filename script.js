@@ -151,8 +151,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 0.1 });
-    const elementsToAnimate = document.querySelectorAll('.edu-container, .list-item');
+    const elementsToAnimate = document.querySelectorAll('.edu-container, .exp-container, .list-item');
     elementsToAnimate.forEach(el => observer.observe(el));
+    
+    // Stagger animation for timeline items
+    const timelineItems = document.querySelectorAll('.timeline-item, .timeline-entry, .timeline-item-card, .experience-card');
+    if (timelineItems.length > 0) {
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('is-visible');
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.2 });
+        timelineItems.forEach(item => timelineObserver.observe(item));
+    }
     
     // --- Initialize Swiper (Desktop/Tablet) ---
     var swiper = new Swiper(".desktop-swiper", {
@@ -401,11 +416,101 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = false;
         });
     });
+
+    // --- Gallery Modal Functionality ---
+    const galleryImages = [
+        'resources/sufista/sufista-1.jpg',
+        'resources/sufista/sufista-2.jpg',
+        'resources/sufista/sufista-3.jpg',
+        'resources/sufista/sufista-4.jpg',
+        'resources/sufista/sufista-5.png'
+    ];
+    
+    const galleryModal = document.getElementById('gallery-modal');
+    const galleryModalImage = document.getElementById('gallery-modal-image');
+    const galleryImageCounter = document.getElementById('gallery-image-counter');
+    const viewAllBtn = document.getElementById('view-all-works-btn');
+    const galleryCloseBtn = document.getElementById('gallery-modal-close');
+    const galleryPrevBtn = document.getElementById('gallery-prev');
+    const galleryNextBtn = document.getElementById('gallery-next');
+    const galleryThumbnails = document.querySelectorAll('.gallery-thumbnail-item');
+    
+    let currentImageIndex = 0;
+    
+    function openGallery(index = 0) {
+        currentImageIndex = index;
+        updateGalleryImage();
+        galleryModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    function closeGallery() {
+        galleryModal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+    
+    function updateGalleryImage() {
+        galleryModalImage.src = galleryImages[currentImageIndex];
+        galleryModalImage.alt = `Sufista Design ${currentImageIndex + 1}`;
+        galleryImageCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+    }
+    
+    function showNextImage() {
+        currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+        updateGalleryImage();
+    }
+    
+    function showPrevImage() {
+        currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+        updateGalleryImage();
+    }
+    
+    // Event listeners
+    if (viewAllBtn) {
+        viewAllBtn.addEventListener('click', () => openGallery(0));
+    }
+    
+    if (galleryCloseBtn) {
+        galleryCloseBtn.addEventListener('click', closeGallery);
+    }
+    
+    if (galleryNextBtn) {
+        galleryNextBtn.addEventListener('click', showNextImage);
+    }
+    
+    if (galleryPrevBtn) {
+        galleryPrevBtn.addEventListener('click', showPrevImage);
+    }
+    
+    // Click on thumbnails to open gallery
+    galleryThumbnails.forEach((thumbnail, index) => {
+        thumbnail.addEventListener('click', () => openGallery(index));
+    });
+    
+    // Close modal when clicking outside the image
+    galleryModal.addEventListener('click', (e) => {
+        if (e.target === galleryModal) {
+            closeGallery();
+        }
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (galleryModal.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                closeGallery();
+            } else if (e.key === 'ArrowRight') {
+                showNextImage();
+            } else if (e.key === 'ArrowLeft') {
+                showPrevImage();
+            }
+        }
+    });
 });
 
 // --- Utility Functions ---
 function copyCitation() {
-    const citationText = 'Rampal, R. D. (2022). Convergence in Alpha-Asynchronous Cellular Automata. Indian Summer School on Cellular Automata.';
+    const citationText = 'Maheswar, B. R., & Rampal, R. D. (2022). Understanding the Convergence in Alpha-Asynchronous Cellular Automata. Presented at Ian Summer School on Cellular Automata, RGUKT-AP, RK Valley & IIEST, Shibpur.';
     navigator.clipboard.writeText(citationText).then(() => {
         showMessageBox('Citation copied to clipboard!');
     }).catch(err => {

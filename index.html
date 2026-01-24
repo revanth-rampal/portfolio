@@ -159,6 +159,7 @@
         <a href="#projects">Projects</a>
         <a href="#freelancing">Freelancing</a>
         <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
         <a href="#certifications">Certs</a>
         <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
@@ -551,28 +552,51 @@
                     </p>
                 </div>
                 <div class="freelancing-gallery">
-                    <h4>Generated Designs</h4>
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="resources/sufista/sufista-1.jpg" alt="Sufista Design 1" class="gallery-image">
+                    <div class="gallery-header">
+                        <h4>Generated Designs</h4>
+                        <button class="btn btn-primary view-all-btn" id="view-all-works-btn">
+                            <i class="fas fa-images"></i> View All Works
+                        </button>
+                    </div>
+                    <div class="gallery-thumbnails">
+                        <div class="gallery-thumbnail-item" data-index="0">
+                            <img src="resources/sufista/sufista-1.jpg" alt="Sufista Design 1" class="thumbnail-img">
                         </div>
-                        <div class="gallery-item">
-                            <img src="resources/sufista/sufista-2.jpg" alt="Sufista Design 2" class="gallery-image">
+                        <div class="gallery-thumbnail-item" data-index="1">
+                            <img src="resources/sufista/sufista-2.jpg" alt="Sufista Design 2" class="thumbnail-img">
                         </div>
-                        <div class="gallery-item">
-                            <img src="resources/sufista/sufista-3.jpg" alt="Sufista Design 3" class="gallery-image">
+                        <div class="gallery-thumbnail-item" data-index="2">
+                            <img src="resources/sufista/sufista-3.jpg" alt="Sufista Design 3" class="thumbnail-img">
                         </div>
-                        <div class="gallery-item">
-                            <img src="resources/sufista/sufista-4.jpg" alt="Sufista Design 4" class="gallery-image">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="resources/sufista/sufista-5.png" alt="Sufista Design 5" class="gallery-image">
+                        <div class="gallery-thumbnail-item" data-index="3">
+                            <img src="resources/sufista/sufista-4.jpg" alt="Sufista Design 4" class="thumbnail-img">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Image Gallery Modal -->
+    <div id="gallery-modal" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <button class="gallery-modal-close" id="gallery-modal-close" aria-label="Close Gallery">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="gallery-nav-btn gallery-nav-prev" id="gallery-prev" aria-label="Previous Image">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="gallery-nav-btn gallery-nav-next" id="gallery-next" aria-label="Next Image">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="gallery-modal-image-container">
+                <img id="gallery-modal-image" src="" alt="Gallery Image" class="gallery-modal-image">
+            </div>
+            <div class="gallery-modal-info">
+                <span id="gallery-image-counter">1 / 5</span>
+            </div>
+        </div>
+    </div>
 
     <section id="education" class="content-section">
         <div class="container">
@@ -600,6 +624,30 @@
                         <p class="edu-year">2018</p>
                         <p>St. Marys Public School</p>
                         <p>GPA: 10.0 / 10.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="content-section" style="background-color: var(--section-background);">
+        <div class="container">
+            <h2 class="section-title">My Experience</h2>
+            <div class="experience-timeline">
+                <div class="exp-container left pragyashal">
+                    <div class="exp-content">
+                        <h5>Machine Learning Engineer</h5>
+                        <p class="exp-company">Pragyashal</p>
+                        <p class="exp-period">Nov 2024 - Nov 2025</p>
+                        <p class="exp-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+                    </div>
+                </div>
+                <div class="exp-container right current">
+                    <div class="exp-content">
+                        <h5>To Be Announced</h5>
+                        <p class="exp-company">TBA</p>
+                        <p class="exp-period">Jan 2026 - Present</p>
+                        <p class="exp-location"><i class="fas fa-map-marker-alt"></i> TBA</p>
                     </div>
                 </div>
             </div>
@@ -767,12 +815,13 @@
             </div>
             <div class="research-card">
                 <div class="paper-content">
-                    <h2 class="paper-title">A Novel Approach to Vehicle Validation using Automatic Number Plate Recognition (ANPR)</h2>
-                    <p class="authors">Revanth Rampal, Dr. Co-Author, Prof. Supervisor</p>
-                    <p class="publication-info">Published in: International Journal of Advanced Computer Science and Applications (IJACSA), Vol. 12, No. 5, 2021</p>
+                    <h2 class="paper-title">Understanding the Convergence in Alpha-Asynchronous Cellular Automata</h2>
+                    <p class="authors"><strong>Authors:</strong> Bheemakonda Raja Maheswar & Revanth D. Rampal</p>
+                    <p class="authors"><strong>Mentor:</strong> Souvik Roy</p>
+                    <p class="publication-info">Presented at: <strong>Ian Summer School on Cellular Automata</strong> (August 29, 2022)<br>RGUKT-AP, RK Valley & IIEST, Shibpur</p>
                     <div class="abstract">
                         <h5>Abstract</h5>
-                        <p>This paper presents a cutting-edge vehicle validation system utilizing Automatic Number Plate Recognition (ANPR). By integrating advanced machine learning algorithms such as YOLO and leveraging OpenCV, our system achieves a significant improvement in recognition accuracy by 30% over traditional methods. We developed a user-friendly GUI with Tkinter for seamless user interaction.</p>
+                        <p>This paper explores the factors of convergence and the behavior of attractors in Alpha-Asynchronous Cellular Automata (CA). Focusing on 2-state, 1-dimensional CA under periodic boundary conditions, the research experimented with 88 minimal rules across alpha values ranging from 0.1 to 1.0. A specialized program was developed to track evolution, successfully identifying 47 specific rules (including Rule 0, 2, 4, 90, 150, etc.) that demonstrate complete convergence to a fixed point. The study further concluded that specific attractors cannot be reliably recorded; due to the stochastic nature of the alpha-asynchronous randomizer ($Random < \alpha$), the cellular evolution path and resulting configurations differ with every execution cycle.</p>
                     </div>
                     <div class="paper-actions">
                         <a href="https://www.cellularautomata.in/SummerSchool/SummerSchool1/IndianSummerSchool2022.pdf#page=10" class="btn btn-primary" target="_blank"><i class="fas fa-file-pdf"></i> View Full Paper</a>
